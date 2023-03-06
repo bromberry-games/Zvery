@@ -1,0 +1,116 @@
+# nothing exciting
+- Name: "Blohked" 
+  TexturePath: "images/creatures/crystal/blohked.png"
+  CardType: "creature"
+  Type: crystal 
+  Health: 8 
+  CatchRate: 13 
+  Level: 1
+  Abilities:  
+    - "When Splintrat uses a skill deal 1 damage." 
+    - "When Splintrat takes heart damage deal 1 damage to another friendly creature." 
+  AmountInDeck: 1 
+
+- Name: "Tchelychna"
+  TexturePath: "images/creatures/crystal/tchelychna.png"
+  CardType: "creature"
+  Type: crystal 
+  Health: 8 
+  CatchRate: 14  
+  Level: 1
+  Abilities:  
+    - "When Tchelychna deals 4 or more DMG with one skill you may SHATTER 1." 
+  AmountInDeck: 1
+
+# a little more exciting
+- Name: "Shardoon" 
+  TexturePath: "images/creatures/crystal/shardoon.png"
+  CardType: "creature"
+  Type: crystal 
+  Health: 7 
+  CatchRate: 14 
+  Level: 1
+  Abilities:  
+    - "When Shardoon deals damage to an enemy deal 1 damage to another creature."
+  AmountInDeck: 1 
+
+# rework
+- Name: Krictyl
+  TexturePath: "images/creatures/crystal/krictyl.png"
+  CardType: "creature"
+  Type: crystal 
+  Health: 9 
+  CatchRate: 14
+  Level: 2
+  Abilities:  
+    - "When Krictyl uses a skill it gains -1 fortitude and +1 strength" 
+  AmountInDeck: 1 
+
+# may be unfit for starter
+- Name: Mirrtle 
+  CardType: "creature"
+  Type: crystal 
+  Health: 4 
+  CatchRate: 16
+  Level: 2
+  Abilities:  
+    - "Once per turn, you may block all damage Mirrtle would recieve and instead deal that to your attacker." 
+  AmountInDeck: 1
+
+- Name: Krika 
+  CardType: "creature"
+  TexturePath: "images/creatures/crystal/Mineraffe.png"
+  Type: crystal 
+  Health: 10
+  CatchRate: 16 
+  Level: 2
+  Abilities:  
+    - "When Krika takes damage you may gain a new dice with the amount of damage Krika took."
+  AmountInDeck: 1 
+
+- Name: Jadambe
+  CardType: "creature"
+  Type: crystal 
+  Health: 7 
+  CatchRate: 20 
+  Level: 3
+  Abilities:  
+    - "When Jadambe deals HEART damage gain 1 HEART." 
+    - "When Jadambe loses 3 or more HEART give any creature STUN 1."
+  AmountInDeck: 1 
+
+- Name: Rubbortoise
+  TexturePath: "images/creatures/crystal/rubbortoise.png"
+  CardType: "creature"
+  Type: crystal 
+  Health: 12 
+  CatchRate: 21 
+  Level: 3
+  Abilities:  
+    - "When Rubbortoise deals HEART damage with a skill, Rubbortoise may deal 1 damage after roll."
+    - "When Rubbortoise damages the same creature three times this turn, Rubbortoise gains +1 strength." 
+  AmountInDeck: 1 
+
+- Name: "Grilla" 
+  CardType: "creature"
+  Type: crystal 
+  Health: 18
+  CatchRate: 20
+  Level: 3
+  Abilities:  
+    - "Once per turn you may SHATTER 2" 
+    - "At the end of the turn Grilla takes 1 DMG for every {{D:1}} or {{D:2}} in your roll"
+  AmountInDeck: 1 
+
+    ### TODO: Only commented out because I like the 2nd trait
+    #- Name: Crycada
+    #  CardType: "creature"
+    #  Type: crystal 
+    #  Health: 14
+    #  CatchRate: 20
+    #  Level: 4
+    #  Abilities:  
+    #  - "Once per turn, you may deal 3 damage to Crycada and SHATTER 1."
+    #  - "At the end of the turn, deal 1 damage for every 2 or lower in your roll."
+    #  AmountInDeck: 1  
+

@@ -1,0 +1,99 @@
+- Name: "Tempriss"
+  TexturePath: "images/stable-diff/mutations/void/tempriss-px.png"
+  CardType: "mutation"
+  Type: Void
+  Mutation: Upgrade
+  Field: "Each turn every player may SET 2."
+  Text: "Each turn you may SET 1."
+  AmountInDeck: 1
+
+- Name: "Shadowskin"
+  TexturePath: "images/stable-diff/mutations/void/shadowskin-px.png"
+  CardType: "mutation"
+  Type: Void
+  Mutation: Upgrade
+  Field: "After roll players may reroll all their dice." 
+  Text: "Gain +2 HEART \n Once per battle after your roll you may reroll all your dice"
+  AmountInDeck: 1
+
+- Name: "Skinister"
+  TexturePath: "images/stable-diff/mutations/void/skinister-px.png"
+  CardType: "mutation"
+  Type: Void 
+  Mutation: Upgrade
+  Field: "When a creature uses a skill that effects itself players may activate that effect on their own creatures."
+  Text: "Gain +1 HEART \nWhen a creature uses a skill that effects itself this creature may activate that effect on itself."
+  AmountInDeck: 1
+
+- Name: "Quanneling"
+  TexturePath: "images/stable-diff/mutations/void/quanneling-px.png"
+  CardType: "mutation"
+  Type: Void 
+  Mutation: Upgrade
+  Field: "Players swap their creatures. Creatures can target themselves. Players still win when their original creatures survive. Catching
+    works as expected."
+  Text: This creature can target itself with all skills.
+  AmountInDeck: 1
+
+- Name: "Spearleaping"
+  TexturePath: "images/stable-diff/mutations/void/spearleaping-px.png"
+  CardType: "mutation"
+  Type: Void 
+  Mutation: Upgrade
+  Field: "All creatures may use their skills as often as they want."
+  Text: +1 heart. \nThis creature may use skills a second time.
+  AmountInDeck: 1
+  
+- Name: "Varking"
+  TexturePath: "images/stable-diff/mutations/void/varking-px.png"
+  CardType: "mutation"
+  Type: Void
+  Mutation: Upgrade
+  Field: "Every turn before roll players may set the value of 1 dice and then roll the rest."
+  Text: "+2 heart. \nWhen you use a skill you may reroll 1 unused dice."
+  AmountInDeck: 1
+
+- Name: "Spiralisys"
+  TexturePath: "images/stable-diff/mutations/void/spiralisys-px.png"
+  CardType: "mutation"
+  Type: Void
+  Mutation: Upgrade 
+  Field: "Every creature can use skills from every other creature. They can still only be used once." 
+  Skill:
+    !Skill
+    dice: 
+      - X
+    powerup: Null
+    modifiers: Null
+    text: Choose a creature. The next used skill has to target that creature.
+    AmountInDeck: 1
+
+- Name: "Doupler"
+  TexturePath: "images/stable-diff/mutations/void/doupler-px.png"
+  CardType: "mutation"
+  Type: Void 
+  Mutation: Upgrade
+  Field: "Once per turn, players may use a skill that costs up to 2 dice or up to 12 powerup without paying its cost."
+  Skill:
+    !Skill
+    dice: 
+      - 2
+      - 2
+    powerup: Null
+    modifiers: Null
+    text: Use the last ability that was used without paying its cost.
+  AmountInDeck: 1
+
+- Name: "Mimicry"
+  TexturePath: "images/stable-diff/mutations/void/mimicry-px.png"
+  CardType: "mutation"
+  Type: Void
+  Mutation: Upgrade
+  Field: "When a creature uses a skill that targets itself it may activate that skill again for free." 
+  Skill:
+    !Skill
+    dice: Null
+    powerup: 6
+    modifiers: Null
+    text: This turn when a creature uses a skill that targets itself this creature may activate a copy of that skill.
+  AmountInDeck: 1

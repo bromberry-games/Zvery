@@ -1,0 +1,295 @@
+- Name: "All out offense"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/all_out_offense.png"
+  Skills: 
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Deal X DMG then deal X-1 DMG to yourself."
+    - !Skill
+      dice: 
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "If you took 4 or more damage this turn deal 3 DMG else deal 1."
+    - !Skill
+      dice:
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG. Gain -1 fortitude until the end of this turn."
+    - !Skill
+      dice: 
+        - M
+        - M
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Deal 20 DMG. Set this creatures HEART to 1."
+  AmountInDeck: 1 
+
+- Name: "Windbreaker"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/windbreaker.png"
+  Skills:
+    - !Skill
+      dice: 
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "The next attack this creature gets targeted by does half (round down) DMG, then deal full damage to the creature that attacked."
+    - !Skill
+      dice: 
+        - 2
+        - 2
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG then 2 DMG to another creature."
+    - !Skill
+      dice: Null
+      powerup: 3
+      modifiers: Null
+      text: "Deal 2 DMG."
+    - !Skill
+      dice: Null
+      powerup: 4
+      modifiers: Null
+      text: "If you take 4 or more DMG this turn gain 2 {{D:2}}."
+  AmountInDeck: 1
+
+- Name: "Energetic restructuring"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/energetic_restructuring.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "When target friendly creature takes 6 or more DMG this turn it regains 6 HEART then gains +1 strength."
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 1 DMG. Halve (round down) the value of a used die and reuse it."
+    - !Skill
+      dice: 
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG when this creatures HEART is 4 or less deal 4 DMG."
+    - !Skill
+      dice: 
+        - M
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Target any creature. It's next attack does double damage"
+  AmountInDeck: 1 
+
+- Name: "Crystalleye"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/crystaleye.png"
+  Skills:
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Shatter this die and take 2 DMG."
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG."
+    - !Skill
+      dice: Null
+      powerup: 10
+      modifiers: Null
+      text: "Deal 3 DMG."
+    - !Skill
+      dice: 
+        - 4
+        - 4
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG to every enemy and 2 DMG to every of your creatures."
+  AmountInDeck: 1
+
+- Name: "Fractured wrap"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/fractured_wrap.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG take 1 DMG."
+    - !Skill
+      dice: 
+        - X
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Shatter unused die."
+    - !Skill
+      dice: Null
+      powerup: 10
+      modifiers: Null
+      text: "Deal 4 DMG if you tooke 3 or more DMG this turn, else deal 2 DMG."
+    - !Skill
+      dice: 
+        - S
+        - S
+        - S
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Shatter all dice you have."
+  AmountInDeck: 1
+
+- Name: "Splintering Impact"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/splintering_impact.png"
+  Skills:
+    - !Skill
+      dice: 
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG and 1 DMG to different creature."
+    - !Skill
+      dice: 
+        - 4
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG and 1 to different creature."
+    - !Skill
+      dice: Null
+      powerup: 4
+      modifiers: Null
+      text: "Shatter a unused die."
+    - !Skill
+      dice: 
+       - 1
+      powerup: Null
+      modifiers: Null
+      text: "Choose any creature. The next time it gets damage it deals the same amount of damage to its attacker."
+  AmountInDeck: 1
+
+- Name: "Crystallize"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/crystalize.png"
+  Skills:
+    - !Skill
+      dice: Null
+      powerup: 5
+      modifiers: Null
+      text: "Deal 1 DMG for every 2 in your roll. Take 1 DMG for every 5 in your roll."
+    - !Skill
+      dice: 
+        - 4
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG."
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "SHATTER 1."
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Gain +1 fortitude. Next turn, this creature cannot use skills."
+  AmountInDeck: 1
+
+- Name: "Mirroring Minerals"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/mirroring_minerals.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Turn this skill into any skill currently on field for this combat."
+    - !Skill
+      dice: 
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG."
+    - !Skill
+      dice: 
+        - X
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Copy the last skill that targeted this creature and use it for free."
+    - !Skill
+      dice: Null
+      powerup: 10
+      modifiers: Null
+      text: "SHATTER 1. Deal 1 damage for every 2 in your roll."
+  AmountInDeck: 1
+
+- Name: "Carbonado Finish"
+  CardType: "adaptation"
+  Type: crystal 
+  TexturePath: "images/stable-diff/attacks/crystal/carbonado_finish.png"
+  Skills:
+    - !Skill
+      dice: Null
+      powerup: 4
+      modifiers: Null
+      text: "Deal 1 DMG."
+    - !Skill
+      dice: 
+        - 3
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG."
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Gain +1 fortitude until the end of this turn."
+    - !Skill
+      dice: 
+        - S
+        - S
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG then SHATTER 1 of the dice used for this skill."
+  AmountInDeck: 1
+

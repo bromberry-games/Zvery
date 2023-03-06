@@ -1,0 +1,99 @@
+- Name: "Fractured shell"
+  TexturePath: "images/stable-diff/mutations/crystal/fractured-shell-crop.png"
+  CardType: "mutation"
+  Type: crystal 
+  Mutation: Upgrade
+  Field: "Each turn every player may SHATTER 2."
+  Text: "Every turn you may SHATTER 1."
+  AmountInDeck: 1
+
+- Name: "Immovable"
+  TexturePath: "images/stable-diff/mutations/crystal/immovable-px.png"
+  CardType: "mutation"
+  Type: crystal
+  Mutation: Upgrade
+  Field: "At the beginning of the battle, each player chooses a creature. It takes double DMG this battle."
+  Text: "The third skill this creature uses each turn may deal double damage."
+  AmountInDeck: 1
+
+- Name: "Crystal crown"
+  TexturePath: "images/stable-diff/mutations/crystal/crystal-crown-crop.png"
+  CardType: "mutation"
+  Type: crystal 
+  Mutation: Upgrade
+  Field: "Every time a creature takes damage, the controlling player may SHATTER 1."
+  Text: "+4 heart. \n-1 fortitude.\nIf this creature take DMG you may SHATTER 1."
+  AmountInDeck: 1
+
+- Name: "Crystal clarity"
+  TexturePath: "images/stable-diff/mutations/crystal/crystal-clarity-crop.png"
+  CardType: "mutation"
+  Type: crystal
+  Mutation: Upgrade
+  Field: "Both players have an extra die in this battle."
+  Text: "+1 heart. \nIf you take DMG, you may set a die to 4."
+  AmountInDeck: 1
+
+- Name: "Shatterization"
+  TexturePath: "images/stable-diff/mutations/crystal/shatterization-px.png"
+  CardType: "mutation"
+  Type: crystal
+  Mutation: Upgrade
+  Field: "Every time a player uses a skill, they may SHATTER 1."
+  Text: "+2 heart.\nEvery time you use a skill, you may SHATTER 1. If you do, your opponent may SHATTER 1 as well."
+  AmountInDeck: 1
+
+- Name: "Back juts"
+  TexturePath: "images/stable-diff/mutations/crystal/back-juts-px.png"
+  CardType: "mutation"
+  Type: crystal 
+  Mutation: Upgrade
+  Field: "When any player SHATTERs, they may choose what dice they get as long as they add up to the shattered die."
+  Text: "+1 heart. \nWhen this creature SHATTERs, you may choose what dice you get as long as they add up to the shattered die."
+  AmountInDeck: 1
+
+- Name: "Ultra horn" 
+  TexturePath: "images/stable-diff/mutations/crystal/ultra-horn-px.png"
+  CardType: "mutation"
+  Type: crystal 
+  Mutation: Upgrade
+  Field: "Each creature starts the battle with -2 health."
+  Skill:
+    !Skill
+    dice: 
+      - 4
+    powerup: Null
+    modifiers: Null
+    text: Deal 4 DMG to all enemy creatures. Give opponent 3 extra dice for next turn.
+  AmountInDeck: 1 
+
+- Name: "Crystal cracker"
+  TexturePath: "images/stable-diff/mutations/crystal/crystal-cracker-px.png"
+  CardType: "mutation"
+  Type: crystal
+  Mutation: Upgrade
+  Field: "All creatures start the battle with -1 fortitude"
+  Skill:
+    !Skill
+    dice: Null
+    powerup: 17
+    modifiers: Null
+    text: Shatter all your dice. Then remove every dice with value 2 or lower. Deal DMG equal to halve of the amount of dice removed (round up).
+  AmountInDeck: 1
+
+#Encapsulate yourself in a big crystal to block incoming dmg
+- Name: "Multifaceted iris"
+  TexturePath: "images/stable-diff/mutations/crystal/multifaceted-iris-crop.png"
+  CardType: "mutation"
+  Type: crystal 
+  Mutation: Upgrade
+  Field: "This battle, both players start with only 1 dice. Then after every turn, add an extra dice to roll with."
+  Skill:
+    !Skill
+    dice: 
+      - 2
+      - 2
+    powerup: Null
+    modifiers: Null
+    text: Block all damage that would be dealt from the next skill that targets this creature. 
+  AmountInDeck: 1

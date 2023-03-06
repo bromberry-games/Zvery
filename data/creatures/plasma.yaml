@@ -1,0 +1,125 @@
+- Name: "Orolotl" 
+  TexturePath: "images/creatures/plasma/orolotl.png"
+  CardType: "creature"
+  Type: "Plasma" 
+  Health: 7 
+  CatchRate: 15  
+  Level: 1
+  Abilities:  
+    - "When Orolotl takes damage you may deal 1 damage to any creature." 
+  AmountInDeck: 1 
+
+- Name: "Plasnail"
+  TexturePath: "images/creatures/plasma/plasnail.png"
+  CardType: "creature"
+  Type: "Plasma"
+  Health: 6
+  CatchRate: 13
+  Level: 1
+  Abilities:
+    - "Plasnail starts the battle with +1 fortitude."
+  AmountInDeck: 1
+
+- Name: "Ionora"
+  TexturePath: "images/creatures/plasma/ionora.png"
+  CardType: "creature"
+  Type: "Plasma"
+  Health: 7
+  CatchRate: 14
+  Level: 1
+  Abilities:
+    - "Once per turn you may fuse two dice."
+  AmountInDeck: 1
+
+- Name: "Curro"
+  TexturePath: "images/creatures/plasma/curro.png"
+  CardType: "creature"
+  Type: "Plasma"
+  Health: 7
+  CatchRate: 17
+  Level: 2
+  Abilities:
+    - "Curro starts the battle with +1 strength."
+    - "When Curro gets targeted by a friendly skill you may deal 1 damage to any creature."
+  AmountInDeck: 1
+
+- Name: "Reygulya"
+  TexturePath: "images/creatures/plasma/reygulya.png"
+  CardType: "creature"
+  Type: "Plasma" 
+  Health: 10 
+  CatchRate: 16 
+  Level: 2
+  Abilities:  
+    - "Once per turn you may deal 1 damage for every {{D:6}} in your roll." 
+  AmountInDeck: 1 
+
+- Name: "Kaurybri"
+  TexturePath: "images/creatures/plasma/kaurybri.png"
+  CardType: "creature"
+  Type: "Plasma"
+  Health: 9
+  CatchRate: 16
+  Level: 2
+  Abilities:
+    - "If Kaurybri does 3 or more damage with one skill you may give target creature STUN 1."
+  AmountInDeck: 1
+
+- Name: "Coiler" 
+  CardType: "creature"
+  Type: "Plasma" 
+  Health: 13 
+  CatchRate: 16 
+  Level: 3
+  Abilities:   
+    - "You may remove STUN 4 from any creature, then give Coiler +1 strength."
+    - "Once per turn you may give STUN 4 to any creature, then give Coiler -1 fortitude."
+  AmountInDeck: 1 
+
+- Name: "Decayadile" 
+  CardType: "creature"
+  Type: "Plasma" 
+  Health: 12
+  CatchRate: 19 
+  Level: 3
+  Abilities:
+    - "When Decayadile deals DMG you may FUSE one used and one unused die."
+    - "When you fuse two dice you may deal halve the excess value (ROUND UP) as damage."
+  AmountInDeck: 1
+
+
+- Name: "Ohmkey"
+  TexturePath: "images/creatures/plasma/ohmkey.png"
+  CardType: "creature"
+  Type: "Plasma"
+  Health: 15 
+  CatchRate: 19
+  Level: 3
+  Abilities:
+    - "Ohmkey always deals damage to every stunned creature as well as its original target."
+    - "Instead of dealing damage you, may choose to give your target STUN 3."
+  AmountInDeck: 1
+
+#
+#- Name: "Urstorm"
+#  Type: "Plasma" 
+#  Health:  6 
+#  CatchRate: 22 
+#  Level: 6
+#  Abilities:
+#    - "This card takes 0 DMG from the first ability every turn"
+#    - "Every time this card gets targeted by an ability that deals DMG this card gains +1 strength"  
+#    - "Once per turn you may gain -1 strength to gain +2 HEALTH"
+#  AmountInDeck: 1
+
+    ### might be a nice extra
+    #- Name: "Plasworm"
+    #  CardType: "creature"
+    #  Type: "Plasma"
+    #  Health: 13 
+    #  CatchRate: 20  
+    #  Level: 4
+    #  Abilities:  
+    #    - "Plasworm starts the battle with +2 Strength" 
+    #    - "When Plasworm deals 5 or more DMG in 1 turn give it stun 3"
+    #  AmountInDeck: 1 

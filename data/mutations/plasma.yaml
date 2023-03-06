@@ -1,0 +1,99 @@
+- Name: "Fusion filter"
+  TexturePath: "images/stable-diff/mutations/plasma/fusion-filter-crop.png"
+  CardType: "mutation"
+  Type: Plasma 
+  Mutation: Upgrade
+  Field: "Every turn each player may FUSE 2 times."
+  Text: "Every turn you may FUSE 1 time."
+  AmountInDeck: 1
+
+- Name: "Volt-amplifier"
+  TexturePath: "images/stable-diff/mutations/plasma/volt-amplifier-crop.png"
+  CardType: "mutation"
+  Type: Plasma
+  Mutation: Upgrade
+  Field: "Every creature starts this battle with +1 strength"
+  Text: "+1 strength"
+  AmountInDeck: 1
+
+- Name: "Hazardous overcharge"
+  TexturePath: "images/stable-diff/mutations/plasma/hazardous-overcharge-crop.png"
+  CardType: "mutation"
+  Type: Plasma
+  Mutation: Upgrade
+  Field: "When a creature gets stunned the controlling player may SET 1."
+  Text: "Gain +1 HEART \n When this creature gets stunned you may SET 1."
+  AmountInDeck: 1
+
+- Name: "Unstable capacitor" 
+  TexturePath: "images/stable-diff/mutations/plasma/unstable-capacitor-crop.png"
+  CardType: "mutation"
+  Type: Plasma 
+  Mutation: Upgrade
+  Field: "If a creature takes exactly 1 damage the controlling player may deal STUN 3"
+  Text: "Gain +2 HEART. \n If this creature takes exactly 1 DMG deal STUN 3."
+  AmountInDeck: 1 
+
+- Name: "Fractal mobility"
+  TexturePath: "images/stable-diff/mutations/plasma/fractal-mobility-crop.png"
+  CardType: "mutation"
+  Type: Plasma
+  Mutation: Upgrade
+  Field: "If you would stun a creature you may deal 2 DMG to it instead."
+  Text: "You can choose to deal 2 less DMG and instead deal STUN 2."
+  AmountInDeck: 1
+
+- Name: "Diamondesque"
+  TexturePath: "images/stable-diff/mutations/plasma/diamondesque-resistance-crop.png"
+  CardType: "mutation"
+  Type: Plasma
+  Mutation: Upgrade
+  Field: "At the beginning of the turn, players may gain new dice with a combined value equal to the combined STUN of their creatures. Each dice must be 6 when possible."
+  Text: "At the beginning of the turn, you may gain new dice with a combined value equal to the combined STUN of their creatures. Each dice must be 6 when possible."
+  AmountInDeck: 1
+
+- Name: "Activity regulator"
+  TexturePath: "images/stable-diff/mutations/plasma/activity-controller-crop.png"
+  CardType: "mutation"
+  Type: Plasma 
+  Mutation: Upgrade
+  Field: "Every creature starts the battle with STUN 10."
+  Skill:
+    !Skill
+    dice: 
+      - 3
+      - X
+    powerup: Null
+    modifiers: Null
+    text: Every creature that is not stunned gets STUN 6.
+  AmountInDeck: 1
+
+- Name: "Electromagnetism"
+  TexturePath: "images/stable-diff/mutations/plasma/electromagnetism-crop.png"
+  CardType: "mutation"
+  Type: Plasma
+  Mutation: Upgrade
+  Field: "Every player has to choose a creature. Their opponent can only target that creature until it died."
+  Skill:
+    !Skill
+    dice: 
+      - 5
+    powerup: Null
+    modifiers: Null
+    text: Take STUN 3. This card gets targeted by all enemy skills until the end of this turn. At the end of this turn deal 1 DMG for every skill this card got targeted by.
+  AmountInDeck: 1
+
+- Name: "Oscillating discharge"
+  TexturePath: "images/stable-diff/mutations/plasma/oscillating-discharge-crop.png"
+  CardType: "mutation"
+  Type: Plasma
+  Mutation: Upgrade
+  Field: "When a creature gets stunned controlling player may gain dice with the combined value as the stun. They have to choose dice with the highest value possible."
+  Skill:
+    !Skill
+    dice: 
+      - 5
+    powerup: Null
+    modifiers: Null
+    text: Remove any amount of stun from creature and gain dice with the combined value of stun removed. You have to choose dice with the highest value possible.
+  AmountInDeck: 1

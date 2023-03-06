@@ -1,0 +1,291 @@
+- Name: "Supercharge"
+  CardType: "adaptation"
+  Type: Plasma
+  TexturePath: "images/stable-diff/attacks/plasma/supercharge.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: 
+        - 5
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Deal 1 DMG and STUN 4"
+    - !Skill
+      dice: 
+        - 3
+        - 3
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Give a creature STUN 13."
+    - !Skill
+      dice: Null
+      powerup: 12
+      modifiers: Null
+      text: "Deal 2 DMG and FUSE"
+  AmountInDeck: 1 
+
+- Name: "Fluctuating Charge"
+  CardType: "adaptation"
+  Type: Plasma
+  TexturePath: "images/stable-diff/attacks/plasma/fluctuating_charge.png"
+  Skills:
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Gain STUN 1. Roll a new dice."
+    - !Skill
+      dice: Null
+      powerup: 10
+      modifiers: Null
+      text: "Deal 3 DMG"
+    - !Skill
+      dice: 
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "The next time target creature uses a skill it has to use the same skill again without cost."
+    - !Skill
+      dice: 
+        - S
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Fuse 2 dice. Deal the resulting value as damage."
+  AmountInDeck: 1 
+
+- Name: "Down the Current"
+  CardType: "adaptation"
+  Type: Plasma
+  TexturePath: "images/stable-diff/attacks/plasma/down_the_current.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 2 
+        - 4 
+      powerup: Null
+      modifiers: Null
+      text: "Give a creature STUN 6"
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Deal 5 DMG to a stunned creature, else deal 1. It loses its stun."
+    - !Skill
+      dice: Null
+      powerup: 7
+      modifiers: Null
+      text: "Fuse 2 dice"
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null
+      text: "Deal 2 DMG"
+  AmountInDeck: 1 
+
+- Name: "Frantic Overload"
+  CardType: "adaptation"
+  Type: Plasma
+  TexturePath: "images/stable-diff/attacks/plasma/frantic_overload.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Give any creature +2 strength until it has used a skill or the end of the turn. Give this creature STUN 4."
+    - !Skill
+      dice:
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG"
+    - !Skill
+      dice: Null
+      powerup: 3
+      modifiers: Null
+      text: "Deal 1 DMG"
+    - !Skill
+      dice: 
+        - 3
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Give this creature STUN 5. Give any creature +1 strength."
+  AmountInDeck: 1 
+
+- Name: "Pole Reversal"
+  CardType: "adaptation"
+  Type: Plasma
+  TexturePath: "images/stable-diff/attacks/plasma/pole_reversal.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 3
+        - X
+      powerup: Null
+      modifiers: 
+      text: "The next time this card takes damage it gains the damage as heart instead."
+    - !Skill
+      dice: 
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Give STUN 2 to one of your creatures. Roll 2 new dice."
+    - !Skill
+      dice: Null
+      powerup: 6
+      modifiers: Null
+      text: "Deal 2 DMG."
+    - !Skill
+      dice: 
+        - S
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Fuse 2 dice. Increment all your dice by 1. Deal 1 DMG for every even dice in your roll."
+  AmountInDeck: 1 
+
+- Name: "ZZZZZZZZ!"
+  CardType: "adaptation"
+  Type: Plasma 
+  TexturePath: "images/stable-diff/attacks/plasma/z.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG to all non-plasma creatures."
+    - !Skill
+      dice: 
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG."
+    - !Skill
+      dice: 
+        - 3
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Stun 3 to 2 different creatures. If your opponent already passed give additional STUN 3"
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "FUSE deal excess value as DMG to this card"
+  AmountInDeck: 1 
+
+- Name: "Thunder"
+  CardType: "adaptation"
+  Type: Plasma 
+  TexturePath: "images/stable-diff/attacks/plasma/thunder.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 3
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Give a creature STUN 6."
+    - !Skill
+      dice: 
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG."
+    - !Skill
+      dice: 
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Choose a creature Then roll a die. If you roll 5 or higher deal 4 DMG else do nothing. If it is stunned roll 3 or higher"
+    - !Skill
+      dice: 
+        - 3
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "Choose 2 creatures. Roll a die for every creature. If you roll 5 or higher deal 4 DMG else do nothing. If it is stunned roll 3 or higher"
+  AmountInDeck: 1
+
+- Name: "Short-circuit"
+  CardType: "adaptation"
+  Type: Plasma 
+  TexturePath: "images/stable-diff/attacks/plasma/short_circuit.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Double the stun on a creature."
+    - !Skill
+      dice: 
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG"
+    - !Skill
+      dice: Null
+      powerup: 11
+      modifiers: Null
+      text: "Deal 2 DMG. If the target creature is stunned deal 6 DMG and remove the stun"
+    - !Skill
+      dice: 
+        - 3
+        - 3
+        - 3
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Give every creature except this one STUN 20."
+  AmountInDeck: 1
+
+- Name: "Pure Energy"
+  CardType: "adaptation"
+  Type: Plasma 
+  TexturePath: "images/stable-diff/attacks/plasma/pure_energy.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 5
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG."
+    - !Skill
+      dice: 
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Give STUN 4 to every other creature"
+    - !Skill
+      dice: 
+        - M
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "This combat, all creatures gain +5 strength."
+    - !Skill
+      dice: Null
+      powerup: 10
+      modifiers: Null
+      text: "Deal 3 DMG"
+  AmountInDeck: 1  

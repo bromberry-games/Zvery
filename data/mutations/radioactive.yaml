@@ -1,0 +1,101 @@
+- Name: "X-ray vision"
+  TexturePath: "images/stable-diff/mutations/radioactive/erratic-weaponization-px.png"
+  CardType: "mutation"
+  Type: Radioactive 
+  Mutation: Upgrade
+  Field: "Every turn players may DECREMENT 5."
+  Text: "Every turn you may DECREMENT 3."
+  AmountInDeck: 1
+
+- Name: "Splitting power"
+  TexturePath: "images/stable-diff/mutations/radioactive/extra-occular-px.png"
+  CardType: "mutation"
+  Type: Radioactive
+  Mutation: Upgrade
+  Field: "When a creature deals damage to itself the controlling player may DECREMENT by the amount of damage it recieved."
+  Text: "Gain +2 HEART. \n When this creature deals damage to itself you may DECREMENT by the amount of damage it recieved."
+  AmountInDeck: 1
+
+- Name: "Drastic irridation"
+  TexturePath: "images/stable-diff/mutations/radioactive/fractal-resistance-px.png"
+  CardType: "mutation"
+  Type: Radioactive
+  Mutation: Upgrade
+  Field: "When a player would decrement a dice below 1 they may deal 2 damage."
+  Text: "Gain +2 HEART. \n When you would decrement a dice below 1 you may deal 1 damage."
+  AmountInDeck: 1
+  
+- Name: "Isotopic limbs"
+  TexturePath: "images/stable-diff/mutations/radioactive/fuzzy-wings-px.png"
+  CardType: "mutation"
+  Type: Radioactive 
+  Mutation: Upgrade
+  Field: "Every turn both players may set a dice to 1."
+  Text: "GAIN +1 HEART. \n Once per Battle you may set all dice to 1."
+  AmountInDeck: 1
+
+- Name: "UV booster"
+  TexturePath: "images/stable-diff/mutations/radioactive/helping-hand-px.png"
+  CardType: "mutation"
+  Type: Radioactive 
+  Mutation: Upgrade
+  Field: "When a creature damages itself to 0 or lower the controlling player may SET 2 and roll a new dice."
+  Text: "GAIN +1 HEART. \nWhen this creature damages itself to 0 or lower you may SET 2."
+  AmountInDeck: 1 
+
+- Name: "Nucleus charging"
+  TexturePath: "images/stable-diff/mutations/radioactive/inner-clock-px.png"
+  CardType: "mutation"
+  Type: Radioactive 
+  Mutation: Upgrade
+  Field: "When a player uses a skill that manipulates dice they may take 3 DMG to activate the skill again for free."
+  Text: "When you use a skill that manipulates dice you may take 3 DMG to activate the skill again for free."
+  AmountInDeck: 1
+
+- Name: "Shredded Currocumuli"
+  TexturePath: "images/stable-diff/mutations/radioactive/radiating-shielding-px.png"
+  CardType: "mutation"
+  Type: Radioactive 
+  Mutation: Upgrade
+  Field: "In the first turn players may deal 1 damage. The next turn 2, then 3 and so on."
+  Skill:
+    !Skill
+    dice: 
+      - S
+      - S
+    powerup: Null
+    modifiers: Null
+    text: The first time you use this skill deal 1 Damage. The second time deal 2, then 3 and so on.
+  AmountInDeck: 1
+
+- Name: "Unstable core"
+  TexturePath: "images/stable-diff/mutations/radioactive/radioactive-aura-px.png"
+  CardType: "mutation"
+  Type: Radioactive
+  Mutation: Upgrade
+  Field: "When a creatures heart is damaged to 0 or lower the controlling player may deal 5 damage."
+  Skill:
+    !Skill
+    dice: 
+      - 1
+      - X
+    powerup: Null
+    modifiers: Null
+    text: "Set two of your opponents dice. Your opponent then sets 3 of his dice. At the end of the turn deal DMG equal to the total number of dice your opponent used"
+  AmountInDeck: 1
+
+- Name: "Decaying modifications"
+  TexturePath: "images/stable-diff/mutations/radioactive/erratic-weaponization-px.png"
+  CardType: "mutation"
+  Type: Radioactive 
+  Mutation: Upgrade
+  Field: "At the beginning of the battle every creature gains +10 heart and -2 fortitude."
+  Skill:
+    !Skill
+    dice: 
+      - 2
+      - X
+    powerup: Null
+    modifiers: Null
+    text: Deal X DMG to every creature in this battle
+  AmountInDeck: 1

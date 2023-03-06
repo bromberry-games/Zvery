@@ -1,0 +1,97 @@
+- Name: "Gummy bones"
+  TexturePath: "images/stable-diff/mutations/bubblegum/gummy-bones-px.png"
+  CardType: "mutation"
+  Type: Bubblegum
+  Mutation: Upgrade
+  Field: "Every turn, each player may INCREMENT 5."
+  Text: "Every turn, you may INCREMENT 3."
+  AmountInDeck: 1
+
+- Name: "Unidentifiable growth"
+  TexturePath: "images/stable-diff/mutations/bubblegum/unidentifiable-growth-px.png"
+  CardType: "mutation"
+  Type: Bubblegum
+  Mutation: Upgrade 
+  Field: "Each turn, every player may give one of their creatures +1 strength."
+  Text: "+4 heart."
+  AmountInDeck: 1
+
+- Name: "External vulcanization"
+  TexturePath: "images/stable-diff/mutations/bubblegum/external-vulcanization-px.png"
+  CardType: "mutation"
+  Type: Bubblegum 
+  Mutation: Upgrade
+  Field: "The first creature that has 4 or less heart may gain +4 heart immediately."
+  Text: "+1 heart. \n Once per battle, you may block all incoming damage on this creature"
+  AmountInDeck: 1
+
+- Name: "Combustion bubbles" 
+  TexturePath: "images/stable-diff/mutations/bubblegum/combustion-bubbles-px.png"
+  CardType: "mutation"
+  Type: Bubblegum 
+  Mutation: Upgrade
+  Field: "Once per turn, every player may deal up to 6 damage to one of their creatures. Then INCREMENT up to the amount of damage it took."
+  Text: "+1 heart. \nOnce per turn, this creature may take up to 6 damage.Then INCREMENT up to the amount of damage it took."
+  AmountInDeck: 1 
+  
+- Name: "Air bubble"
+  TexturePath: "images/stable-diff/mutations/bubblegum/air-bubble-px.png"
+  CardType: "mutation"
+  Type: Bubblegum 
+  Mutation: Upgrade
+  Field: "Whenever a creature gains heart, the controlling player may INCREMENT up to the amount of heart it gained."
+  Text: "+1 heart. \nWhenever this creature gains heart, you may INCREMENT up to the amount of heart it gained."
+  AmountInDeck: 1
+
+- Name: "Viscous flexibility"
+  TexturePath: "images/stable-diff/mutations/bubblegum/viscous-flexibility-px.png"
+  CardType: "mutation"
+  Type: Bubblegum
+  Mutation: Upgrade
+  Field: "Reduce catch cost this battle by 4"
+  Text: "+2 heart. \nOnce per turn, when the combined value of all your dice is 24 or higher, you may roll an extra die."
+  AmountInDeck: 1
+
+- Name: "Insulation"
+  TexturePath: "images/stable-diff/mutations/bubblegum/air-cannon-crop.png"
+  CardType: "mutation"
+  Type: Bubblegum 
+  Mutation: Upgrade
+  Field: "No creature can be stunned."
+  Skill:
+    !Skill
+    dice: 
+      - 5
+    powerup: Null
+    modifiers: Null
+    text: Remove all STUN from a creature
+  AmountInDeck: 1
+
+- Name: "Impenetrability"
+  TexturePath: "images/stable-diff/mutations/bubblegum/impenetrability-px.png"
+  CardType: "mutation"
+  Type: Bubblegum
+  Mutation: Upgrade
+  Field: "All creatures start the battle with +2 heart."
+  Skill:
+    !Skill
+    dice: Null
+    powerup: 21
+    modifiers: Null
+    text: "Put friendly creature back to full heart. At the end of the second turn from now, deal 20 DMG to that creature."
+  AmountInDeck: 1
+
+- Name: "Candy mace"
+  TexturePath: "images/stable-diff/mutations/bubblegum/candy-mace-px.png"
+  CardType: "mutation"
+  Type: Bubblegum 
+  Mutation: Upgrade
+  Field: "At the beginning of the battle, every creature with 10 or more heart gains +1 Strength. All other creatures gain +4 heart."
+  Skill:
+    !Skill
+    dice: 
+      - 6
+    powerup: Null
+    modifiers: Null
+    text: If target creature has more heart than it started with, it gains +1 strength.
+  AmountInDeck: 1

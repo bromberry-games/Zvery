@@ -1,0 +1,48 @@
+pixelit: 
+blocksize=16
+1024x1024
+
+cropped image size= 512x280
+
+colorschemcreator: https://coolors.co/f72585-7209b7-3a0ca3-4361ee-4cc9f0
+
+
+bubblegum colors:
+	  [254,206,241], //Pink
+	  [114,9,183], //Purple
+	  [247, 37, 133], //Pink
+	  [76,201,240], //Blue
+	  [58,12,163], //Blue
+	  [249,98,166],//Pink
+	  [247,235,236], //ALmost whtie
+	  [245, 248,222], //Beige
+
+crystal colors: 
+	[232,237,223], //almost white
+	[245,203,92], //yellowisch
+	[36,36,35], //black
+	[51,53,51], //Dark grey
+	[253,231,76], //Yellow
+	[237,247,181], //WHite
+	[74,57,84], //dark purple
+	[189,147,216], //purple
+
+plasma colors:
+	[66,3,61], //Purple
+	[104,14,75], //Violet
+	[124,35,140], //Dark magenta
+	[255,53,98],//Red
+	[29,133,252], //Blue
+	[232,237,223], //almost white
+	[124,222,222], //blue
+	[40,156,169], //muted blue
+
+radioactive colors:
+	  [193,251,164],
+	  [123,241,168],
+	  [121,255,166],
+	  [36,36,35], //black
+	  [215,60,105],
+	  [105,220,173],
+	  [108,56,168],
+	  [196,95,184]

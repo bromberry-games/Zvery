@@ -1,0 +1,3 @@
+[submodule "svg_card_creator"]
+	path = svg_card_creator
+	url = git@github.com:simonhackler/svg_card_creator.git

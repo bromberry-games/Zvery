@@ -1,0 +1,277 @@
+- Name: "Infinite Inflation"
+  Type: Bubblegum 
+  CardType: "adaptation"
+  TexturePath: "images/stable-diff/attacks/bubblegum/infinite_inflation.png"
+  Skills:
+    - !Skill
+      dice:
+        - 5
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG and give 2 shield"
+    - !Skill
+      dice:
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Move shield from this creature to another you control"
+    - !Skill
+      dice: Null
+      powerup: 6
+      modifiers: Null
+      text: "Deal 2 DMG and give 1 shield"
+    - !Skill
+      dice:
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "Gain shield equal to the last amount of DMG done"
+  AmountInDeck: 1 
+
+- Name: "POP!"
+  CardType: "adaptation"
+  Type: Bubblegum 
+  TexturePath: "images/stable-diff/attacks/bubblegum/pop.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: Null
+      powerup: 6
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: 
+        - 1
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Gain 4 shield"
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Reduce your shield by X and increment rolled dice by X divided as you choose"
+  AmountInDeck: 1 
+
+- Name: "Vulcanize"
+  CardType: "adaptation"
+  Type: Bubblegum 
+  TexturePath: "images/stable-diff/attacks/bubblegum/vulcanize.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: Null
+      powerup: 6
+      modifiers: Null
+      text: "Deal 1 DMG and increment a die by 1"
+    - !Skill
+      dice: 
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Each player gives 6 shield to their creatures, divided as they choose."
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null
+      text: "Remove all shields from all creatures, deal DMG to them equal to their own shield"
+  AmountInDeck: 1 
+
+- Name: "Stretched Taut"
+  CardType: "adaptation"
+  Type: Bubblegum 
+  TexturePath: "images/stable-diff/attacks/bubblegum/stretched_taut.png"
+  Skills:
+    - !Skill
+      dice: Null
+      powerup: 4
+      modifiers: Null
+      text: "Gain 1 shield"
+    - !Skill
+      dice: 
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "If this creature has 2 or more shield, deal 3 DMG, else deal 1 DMG"
+    - !Skill
+      dice: Null
+      powerup: 12
+      modifiers: Null 
+      text: "Deal 3 DMG"
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Remove this creature's shield, gain a die equal to the shield's value."
+  AmountInDeck: 1 
+
+- Name: "Handy plasticity"
+  CardType: "adaptation"
+  Type: Bubblegum 
+  TexturePath: "images/stable-diff/attacks/bubblegum/handy_plasticity.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: Null
+      powerup: 12
+      modifiers: Null 
+      text: "Deal 1 DMG then give target 3 shield."
+    - !Skill
+      dice: 
+        - 5
+      powerup: 
+      modifiers: Null
+      text: "Remove 6 shield from a creature, then give it +1 fortitude."
+    - !Skill
+      dice: 
+        - "M"
+        - "M"
+      powerup: Null
+      modifiers:  
+      text: "Choose a creature. The next time it would take damage it gains shield equal to the amount of DMG that would have been dealt"
+  AmountInDeck: 1 
+
+- Name: "Bounce back"
+  CardType: "adaptation"
+  Type: Bubblegum 
+  TexturePath: "images/stable-diff/attacks/bubblegum/bounce_back.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null 
+      text: "If you are attacking shield, deal 3 DMG, else deal 2DMG."
+    - !Skill
+      dice: 
+        - 4
+        - 5
+      powerup: Null
+      modifiers: Null 
+      text: "If this creature lost shield this turn deal 4 DMG, else gain 3 shield."
+    - !Skill
+      dice: Null
+      powerup: 6
+      modifiers: Null  
+      text: "This turn, a creature does not lose shield when it attacks."
+    - !Skill
+      dice: 
+        - S
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Deal DMG to all other creatures equal to the amount of shield you have +1. Then give all creatures the amount of DMG as shield"
+  AmountInDeck: 1 
+
+- Name: "Will to live"
+  CardType: "adaptation"
+  Type: Bubblegum 
+  TexturePath: "images/stable-diff/attacks/bubblegum/will_to_live.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: 
+        - 5 
+      powerup: Null
+      modifiers: Null 
+      text: "Give creature with 5 or less health +1 strength."
+    - !Skill
+      dice: 
+        - 5
+        - 5
+        - 5
+        - 5
+      powerup: Null
+      modifiers: Null 
+      text: "Revive dead creature with full heart."
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null 
+      text: "Deal 3 DMG"
+  AmountInDeck: 1 
+
+- Name: "Bubble trouble"
+  CardType: "adaptation"
+  Type: Bubblegum 
+  TexturePath: "images/stable-diff/attacks/bubblegum/bubble_trouble.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null 
+      text: "Deal DMG equal to your shield."
+    - !Skill
+      dice: 
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Target any creature. This turn every time it deals DMG gain 1 shield"
+    - !Skill
+      dice: Null
+      powerup: 5
+      modifiers: Null
+      text: "After target creature takes damage the controlling player may INCREMENT X. Where X is the amount of damage taken."
+    - !Skill
+      dice: Null
+      powerup: 12
+      modifiers: Null 
+      text: "Deal 4 DMG"
+  AmountInDeck: 1 
+
+- Name: "Candy coat"
+  CardType: "adaptation"
+  Type: Bubblegum 
+  TexturePath: "images/stable-diff/attacks/bubblegum/candy_coat.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Give 2 shield"
+  #Abilities:
+    - !Skill
+      dice: 
+        - 5
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG Gain 3 shield."
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null 
+      text: "Remove all Shield from any creature and give it to this creature"
+    - !Skill
+      dice: Null
+      powerup: 16
+      modifiers: Null 
+      text: "Deal 4 DMG"
+  AmountInDeck: 1
+  

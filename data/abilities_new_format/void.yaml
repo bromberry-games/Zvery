@@ -1,0 +1,283 @@
+- Name: "Interdimensional Rift"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/interdimensional_rift.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG."
+    - !Skill
+      dice: 
+        - 4
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG to 2 creatures."
+    - !Skill
+      dice: Null
+      powerup: 3
+      modifiers: Null
+      text: "Change 1 unused die (your choice) with your opponent."
+    - !Skill
+      dice: Null
+      powerup: 6
+      modifiers: Null
+      text: "Take 2 of your opponents used dice. You can use them. Return them at the end of this turn."
+  AmountInDeck: 1 
+
+- Name: "The other side"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/the_other_side.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Choose any trait on the battlefield and copy it for this turn."
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "When your opponent uses a dice manipulation during his next turn, you may also do the same Dice Manipulation."
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null
+      text: "Deal 3 Dmg."
+    - !Skill
+      dice: 
+        - M
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Deal 1 damage for every {{D:3}} in your roll. Gain 1 heart for every {{D:4}}"
+  AmountInDeck: 1
+
+- Name: "Banish"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/banish.png"
+  Skills: 
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Your opponent can not use skills that need X dice value until he used 2 skills."
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Your opponent rolls a new dice. Then deal damage equal to the value of the new dice."
+    - !Skill
+      dice: 
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Deal 1 DMG then set the value of 2 dice you used for this skill and reuse them."
+    - !Skill
+      dice: Null
+      powerup: 6
+      modifiers: Null
+      text: "Deal 2 DMG."
+  AmountInDeck: 1 
+
+- Name: "Time Leap"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/time_leap.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG." 
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null
+      text: "Deal 3 DMG at the beginning of next turn after roll."
+    - !Skill
+      dice: 
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "If your opponent has used 3 or more dice end this turn."
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "set X dice aside for next turn. Your opponent can match X+1 to cancel this skill and deal 1DMG to this creature."
+  AmountInDeck: 1
+
+- Name: "Time Force"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/time_force.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Next turn after roll deal 2 DMG to any card."
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "If target friendly takes exactly X dmg this turn it heals X+1."
+    - !Skill
+      dice: 
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Next turn after roll deal 4 DMG to any card."
+    - !Skill
+      dice: Null
+      powerup: 1
+      modifiers: Null
+      text: "Every dice you used on this skill you can use next turn. You still roll 5 new ones."
+  AmountInDeck: 1
+
+- Name: "Gravitational Pull"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/gravitation_pull.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Choose one of your creatures it is immune until after your opponent used an skill."
+    - !Skill
+      dice: 
+        - 2
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "Reduce HEART of the creature with highest HEART to the same value as the 2nd highest HEART."
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Give a creature +1 strength until it takes HEART damage."
+    - !Skill
+      dice: Null
+      powerup: 6
+      modifiers: Null
+      text: "Deal 1 DMG and change 1 rolled die to {{D:2}}."
+  AmountInDeck: 1 
+
+- Name: "Assorted darkness"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/assorted_darkness.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 3
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "If target creature recieved 0 damage this turn give it +1 strength at the end of the turn."
+    - !Skill
+      dice: 
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "You go second next turn."
+    - !Skill
+      dice: Null
+      powerup: 10
+      modifiers: Null
+      text: "Deal 2 DMG. Then choose 2 skills of your opponent, he can not use them until he uses another skill or you activate this skill again."
+    - !Skill
+      dice: 
+        - M
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG. Then reuse 2 dice you used for this and set their value."
+  AmountInDeck: 1
+
+- Name: "Past Blast"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/past_blast.png"
+  Skills:
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "You can use the die used on this skill next turn in addition to your rolled dice."
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Next turn deal 1 DMG for every dice with value X in your roll."
+    - !Skill
+      dice: 
+        - 2
+        - 2
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG to creature and remove it from play until the end of this turn. You cant use this skill next turn."
+    - !Skill
+      dice: Null
+      powerup: 7
+      modifiers: Null
+      text: "Deal 2 DMG."
+  AmountInDeck: 1
+
+- Name: "Beam cannon"
+  CardType: "adaptation"
+  Type: Void 
+  TexturePath: "images/stable-diff/attacks/void/beam_cannon.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "If your opponent only uses 3 or less dice next STEP he is automatically PASSED."
+    - !Skill
+      dice: 
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG and take 1 DMG."
+    - !Skill
+      dice: Null
+      powerup: 1
+      modifiers: Null
+      text: "Deal 1 DMG."
+    - !Skill
+      dice:
+        - S
+        - S
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Deal 8 DMG. Reroll 1 used die."
+  AmountInDeck: 1 

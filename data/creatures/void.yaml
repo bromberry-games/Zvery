@@ -1,0 +1,100 @@
+- Name: "Casprike"
+  TexturePath: "images/creatures/void/casprike.png"
+  CardType: "creature"
+  Type: "Void" 
+  Health: 7 
+  CatchRate: 14 
+  Level: 1
+  Abilities:  
+    - "When your opponent uses a dice manipulation you may use the same dice manipulation" 
+  AmountInDeck: 1
+
+- Name: "Pteroming" 
+  TexturePath: "images/creatures/void/pteroming.png"
+  CardType: "creature"
+  Type: "Void" 
+  Health: 8 
+  CatchRate: 13 
+  Level: 1
+  Abilities:  
+    - "Once per turn one of your creatures can use a skill a 2nd time"
+  AmountInDeck: 1
+
+- Name: "Houcoppa"
+  TexturePath: "images/creatures/void/houcoppa.png"
+  CardType: "creature"
+  Type: "Void" 
+  Health: 8 
+  CatchRate: 14 
+  Level: 1
+  Abilities:  
+    - "Once per turn, instead of dealing dmg Houcoppa may gain HEART equal to the amount of damage you would have dealt."
+  AmountInDeck: 1
+
+- Name: "Guarach" 
+  TexturePath: "images/creatures/void/guarach.png"
+  CardType: "creature"
+  Type: "Void" 
+  Health: 9 
+  CatchRate: 14 
+  Level: 2
+  Abilities:  
+    - "Once per turn Guarach may take 1 DMG to roll an extra die. Next turn roll 1 less die."
+  AmountInDeck: 1 
+
+- Name: "Roggip" 
+  TexturePath: "images/creatures/void/roggip.png"
+  Type: "Void" 
+  CardType: "creature"
+  Health: 10 
+  CatchRate: 14 
+  Level: 2
+  Abilities:  
+    - "If one of your creatures is attacked twice in a row, you may SET 1 die."
+  AmountInDeck: 1 
+
+- Name: "Cosmoon" 
+  TexturePath: "images/creatures/void/cosmoon.png"
+  Type: "Void" 
+  CardType: "creature"
+  Health: 10
+  CatchRate: 15 
+  Level: 2
+  Abilities:
+    - "Once per turn you may set a die to a unique value (a value not present in your roll)." 
+  AmountInDeck: 1
+
+- Name: "Cleavi" 
+  Type: "Void" 
+  CardType: "creature"
+  Health: 12 
+  CatchRate: 17 
+  Level: 3
+  Abilities:  
+    - "Once per turn you may halve one of your rolled dice (round down)."
+    - "When Cleavi uses a skill you have to set a die to a unique value (one that isn't in your roll)."
+  AmountInDeck: 1 
+
+- Name: "Ryndomorph" 
+  TexturePath: "images/creatures/void/ryndomorph.png"
+  CardType: "creature"
+  Type: "Void" 
+  Health: 14
+  CatchRate: 18 
+  Level: 3
+  Abilities:
+    - "When battling roll 6 dice. After roll remove 1 of your dice."
+    - "When Ryndomorph takes damage from a creature you may give that creature -1 fortitude or +1 strength"
+  AmountInDeck: 1
+
+- Name: "Farottodon"
+  CardType: "creature"
+  Type: "Void" 
+  Health: 14
+  CatchRate: 20 
+  Level: 3
+  Abilities:
+    - "Farottodon cannot have abilities"
+    - "Farottodon can use abilities of all typings."
+    - "Farottodon can use abilities from every creature in play"
+  AmountInDeck: 1 

@@ -1,0 +1,4 @@
+<VerticalLayout anchorMin="0.8 0.9" anchorMax="0.87 1" >
+    <Button height="100%" width="100%"  onClick="StartSetup">Setup</Button>
+    <Button height="100%" width="100%"  onClick="DestroyAll">Clear</Button>
+</VerticalLayout>

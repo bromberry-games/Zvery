@@ -1,0 +1,315 @@
+- Name: "Energetic Overflow"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/energetic_overflow.png"
+  Skills: 
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "If you take exactly X DMG in total this turn. Give a creature +1 strength"
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG Take 2 DMG"
+    - !Skill
+      dice:
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG Take 1 DMG"
+    - !Skill
+      dice: Null
+      powerup: 3
+      modifiers: Null
+      text: "Deal 1 DMG. This card takes all excess powerup dice value as DMG"
+  AmountInDeck: 1 
+
+- Name: "Controlled Explosion"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/controlled_explosion.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Decrement 3 dice. The next time this card would take DMG, it takes double DMG."
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Take 1 DMG DECREMENT any dice"
+    - !Skill
+      dice: Null
+      powerup: 7
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: 
+        - S
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Deal 6 DMG take 2 DMG"
+  AmountInDeck: 1 
+
+- Name: "Psychonautics"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/psychonautics.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Choose any creature. When it takes DMG this turn SET 1 dice"
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG to 3 different creatures"
+    - !Skill
+      dice: 
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG"
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Every time a creature uses a skill that costs X it takes 2 DMG"
+  AmountInDeck: 1
+
+- Name: "Super-Gau"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/super_gau.png"
+  Skills:
+    - !Skill
+      dice: 
+        - X
+      powerup: Null
+      modifiers: Null
+      text: "Roll a dice deal its value as DMG to this creature and to another creature"
+    - !Skill
+      dice: 
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "This turn, when this creature is damaged, you may set the value of a die equal to the amount of damage."
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: 
+        - 6
+        - 6
+        - 6
+        - 6
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "Deal 20 DMG to all enemy creatures."
+  AmountInDeck: 1
+
+- Name: "Destructive shutdown"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/destructive_shutdown.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "DECREMENT one ROLLED dice up to 3 times"
+    - !Skill
+      dice: 
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG Take 1 DMG"
+    - !Skill
+      dice: 
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Take 1 DMG Deal 1 DMG to every attackable creature. DECREMENT 2 dice"
+    - !Skill
+      dice: Null
+      powerup: 10
+      modifiers: Null
+      text: "Deal DMG equal to total DMG you dealt to yourself this turn"
+  AmountInDeck: 1 
+
+- Name: "Atomic split"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/atomic_split.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 1 DMG for every 1 in your roll"
+    - !Skill
+      dice: 
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "The next time target creature would take DMG neglect all DMG then deal that DMG to any other creature"
+    - !Skill
+      dice: Null
+      powerup: 5
+      modifiers: Null
+      text: "Deal 1 DMG, DECREMENT 2."
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null
+      text: "Deal 4 DMG, take 1 DMG"
+  AmountInDeck: 1 
+
+    #- Name: "Precise time"
+    #  CardType: "adaptation"
+    #  Type: Radioactive 
+    #  TexturePath: "images/stable-diff/attacks/radioactive/precise_time.png"
+    #  Skills:
+    #    - !Skill
+    #      dice: 
+    #        - 3
+    #      powerup: Null
+    #      modifiers: Null
+    #      text: "Deal 3 DMG take 2 DMG"
+    #    - !Skill
+    #      dice: 
+    #        - 1
+    #        - 6
+    #      powerup: Null
+    #      modifiers: Null
+    #      text: "You may use a skill again. If your opponent already passed this turn roll a new dice"
+    #    - !Skill
+    #      dice: 
+    #        - S
+    #        - S
+    #      powerup: Null
+    #      modifiers: Null
+    #      text: "Reroll a dice you used for this then deal 2 DMG"
+    #    - !Skill
+    #      dice: Null
+    #      powerup: 6
+    #      modifiers: Null
+    #      text: "If your opponent used only 1 Skill last STEP end his turn"
+    #  AmountInDeck: 1
+
+- Name: "Experimental fusion"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/experimental_fusion.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG"
+    - !Skill
+      dice: 
+        - 2
+        - 2
+      powerup: Null
+      modifiers: Null
+      text: "Reassign health of your creatures. Then give each creature 1 HEART"
+    - !Skill
+      dice: 
+        - M
+        - M
+      powerup: Null
+      modifiers: Null
+      text: "Deal 4 DMG take 1 DMG"
+    - !Skill
+      dice: Null
+      powerup: 4
+      modifiers: Null
+      text: "The next ability that targets one of your creatures targets this one as well"
+  AmountInDeck: 1
+
+- Name: "Accelerated Decay"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/accelerated_decay.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG to every creature"
+    - !Skill
+      dice: 
+        - 4
+      powerup: Null
+      modifiers: Null
+      text: "If a creature has 2 or less Health give it +3 HEART"
+    - !Skill
+      dice: 
+        - 3
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Negate all DMG on creature from the next skill it gets targeted by."
+    - !Skill
+      dice: Null
+      powerup: 16
+      modifiers: Null
+      text: "If you still have heart set this creatures HEART to 1. Deal 8DMG to a creature but leave it on one HEART"
+  AmountInDeck: 1
+
+- Name: "Boundless destruction"
+  CardType: "adaptation"
+  Type: Radioactive 
+  TexturePath: "images/stable-diff/attacks/radioactive/boundless_destruction.png"
+  Skills:
+    - !Skill
+      dice: 
+        - 5
+      powerup: Null
+      modifiers: Null
+      text: "Take 5 DMG. Gain 2 {{D:1}} next turn after roll."
+    - !Skill
+      dice: 
+        - 6
+        - 1
+      powerup: Null
+      modifiers: Null
+      text: "Deal 3 DMG to any creature then give it +1 Fortitude"
+    - !Skill
+      dice: 
+        - 3
+      powerup: Null
+      modifiers: Null
+      text: "Deal 2 DMG take 1 DMG"
+    - !Skill
+      dice: Null
+      powerup: 20
+      modifiers: Null
+      text: "Deal 5 DMG"
+  AmountInDeck: 1 
