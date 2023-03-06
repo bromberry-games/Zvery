@@ -9,6 +9,7 @@ local abilityDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery
 
 
 
+
 local currentPlayer = ""
 local otherPlayer = ""
 local playersSetup = 0
@@ -116,7 +117,7 @@ function setupMutationDeck()
 end
 
 function SpawnDeck(cardFaces)
-    local cardBack = 'https://i.imgur.com/KQtQGE7.png'
+    local cardBack = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/back-templates/card-back.png'
     local cardAsset = Decker.Asset(cardFaces, cardBack, {width = 10, height = 5})
     local myDeck = Decker.AssetDeck(cardAsset,45)
     --return myDeck:spawn({position = {-4, 3, 0}, sideways = true})
