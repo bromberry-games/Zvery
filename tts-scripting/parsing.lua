@@ -3,9 +3,9 @@ local CreaturesScript = require("creatures")
 local AbilitiesScript = require("abilities")
 
 --local AbilitiesScript = require("abilities_json")
-local mutationDeckLink = 'https://i.imgur.com/tukh2KN.png'
-local creatureDeckLink = 'https://i.imgur.com/Vo3OeAN.png'
-local abilityDeckLink = 'https://i.imgur.com/JGFH47k.png'
+local mutationDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/mutation-full-grid.png'
+local creatureDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/creature-full-grid.png'
+local abilityDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/adaptation-full-grid.png'
 
 
 local currentPlayer = ""
