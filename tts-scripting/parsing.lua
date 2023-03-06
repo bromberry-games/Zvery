@@ -8,6 +8,7 @@ local creatureDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zver
 local abilityDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/adaptation-full-grid.png'
 
 
+
 local currentPlayer = ""
 local otherPlayer = ""
 local playersSetup = 0
