@@ -1,30 +1,30 @@
 Creatures = {
 	{
-		Name = "Orolotl",TexturePath = "images/creatures/plasma/orolotl.png",CardType = "creature",Type = "Plasma",Health = 7,CatchRate = 15,Level = 1,Abilities = {"When Orolotl takes damage you may deal 1 damage to any creature."},AmountInDeck = 1
+		Name = "Woox",TexturePath = "images/creatures/radioactive/woox.png",CardType = "creature",Type = "Radioactive",Health = 11,CatchRate = 14,Level = 1,Abilities = {"When you roll a {{D:6}} deal 1 damage to Woox."},AmountInDeck = 1
 	},
 	{
-		Name = "Plasnail",TexturePath = "images/creatures/plasma/plasnail.png",CardType = "creature",Type = "Plasma",Health = 6,CatchRate = 13,Level = 1,Abilities = {"Plasnail starts the battle with +1 fortitude."},AmountInDeck = 1
+		Name = "Brijast",TexturePath = "images/creatures/radioactive/brijast.png",CardType = "creature",Type = "Radioactive",Health = 9,CatchRate = 15,Level = 1,Abilities = {"Once per turn you may decrement the value of one die by one."},AmountInDeck = 1
 	},
 	{
-		Name = "Ionora",TexturePath = "images/creatures/plasma/ionora.png",CardType = "creature",Type = "Plasma",Health = 7,CatchRate = 14,Level = 1,Abilities = {"Once per turn you may fuse two dice."},AmountInDeck = 1
+		Name = "Borboa",TexturePath = "images/creatures/radioactive/borboa.png",CardType = "creature",Type = "Radioactive",Health = 7,CatchRate = 16,Level = 1,Abilities = {"When Borboa takes 3 or more damage in a turn it gains +1 strength and +1 fortitude."},AmountInDeck = 1
 	},
 	{
-		Name = "Curro",TexturePath = "images/creatures/plasma/curro.png",CardType = "creature",Type = "Plasma",Health = 7,CatchRate = 17,Level = 2,Abilities = {"Curro starts the battle with +1 strength.","When Curro gets targeted by a friendly skill you may deal 1 damage to any creature."},AmountInDeck = 1
+		Name = "Uturu",CardType = "creature",Type = "Radioactive",Health = 11,CatchRate = 15,Level = 2,Abilities = {"Every turn deal 1 damage to Uturu, another friendly creature, and an opposing creature.","When Uturu deals damage with a skill restore 1 heart to it."},AmountInDeck = 1
 	},
 	{
-		Name = "Reygulya",TexturePath = "images/creatures/plasma/reygulya.png",CardType = "creature",Type = "Plasma",Health = 10,CatchRate = 16,Level = 2,Abilities = {"Once per turn you may deal 1 damage for every {{D:6}} in your roll."},AmountInDeck = 1
+		Name = "Nukeraken",TexturePath = "images/creatures/radioactive/nukeraken.png",CardType = "creature",Type = "Radioactive",Health = 7,CatchRate = 16,Level = 2,Abilities = {"When Nukeraken takes exactly 1 damage it gains 2 heart."},AmountInDeck = 1
 	},
 	{
-		Name = "Kaurybri",TexturePath = "images/creatures/plasma/kaurybri.png",CardType = "creature",Type = "Plasma",Health = 9,CatchRate = 16,Level = 2,Abilities = {"If Kaurybri does 3 or more damage with one skill you may give target creature STUN 1."},AmountInDeck = 1
+		Name = "Decaynt",CardType = "creature",Type = "Radioactive",Health = 13,CatchRate = 13,Level = 2,Abilities = {"Decaynt starts the battle with -1 fortitude.","At the end of every turn, Decaynt gains 2 heart."},AmountInDeck = 1
 	},
 	{
-		Name = "Coiler",CardType = "creature",Type = "Plasma",Health = 13,CatchRate = 16,Level = 3,Abilities = {"You may remove STUN 4 from any creature, then give Coiler +1 strength.","Once per turn you may give STUN 4 to any creature, then give Coiler -1 fortitude."},AmountInDeck = 1
+		Name = "Samoroth",TexturePath = "images/creatures/radioactive/samoroth.png",CardType = "creature",Type = "Radioactive",Health = 12,CatchRate = 19,Level = 3,Abilities = {"When Samoroth takes damage SET 1 die."},AmountInDeck = 1
 	},
 	{
-		Name = "Decayadile",CardType = "creature",Type = "Plasma",Health = 12,CatchRate = 19,Level = 3,Abilities = {"When Decayadile deals DMG you may FUSE one used and one unused die.","When you fuse two dice you may deal halve the excess value (ROUND UP) as damage."},AmountInDeck = 1
+		Name = "SO-7",TexturePath = "images/creatures/radioactive/so-7.png",CardType = "creature",Type = "Radioactive",Health = 16,CatchRate = 16,Level = 3,Abilities = {"SO-7 takes 4 DMG at the beginning of every turn.","If SO-7 dies because of its trait, deal 8 DMG to any creature."},AmountInDeck = 1
 	},
 	{
-		Name = "Ohmkey",TexturePath = "images/creatures/plasma/ohmkey.png",CardType = "creature",Type = "Plasma",Health = 15,CatchRate = 19,Level = 3,Abilities = {"Ohmkey always deals damage to every stunned creature as well as its original target.","Instead of dealing damage you, may choose to give your target STUN 3."},AmountInDeck = 1
+		Name = "Snomora",TexturePath = "images/creatures/radioactive/Snomora.png",CardType = "creature",Type = "Radioactive",Health = 14,CatchRate = 20,Level = 3,Abilities = {"When Snomora takes damage decrease one of your opponents dice.","At the end of turn, deal damage equal to the amount of {{D:1}} in your opponents roll."},AmountInDeck = 1
 	},
 	{
 		Name = "Bubbcat",TexturePath = "images/creatures/bubblegum/bubbcat.png",CardType = "creature",Type = "Bubblegum",Health = 9,CatchRate = 12,Level = 1,Abilities = {"Once per turn you may restore 1 heart for every {{D:1}} in your roll."},AmountInDeck = 1
@@ -52,6 +52,33 @@ Creatures = {
 	},
 	{
 		Name = "Bubbster",Type = "Bubblegum",CardType = "creature",Health = 13,CatchRate = 20,Level = 3,Abilities = {"When this card takes 4 or more DMG you may give the attacker stun 2","Every time your opponent uses a skill that does not damage this card, gain 1 SHIElD"},AmountInDeck = 1
+	},
+	{
+		Name = "Orolotl",TexturePath = "images/creatures/plasma/orolotl.png",CardType = "creature",Type = "Plasma",Health = 7,CatchRate = 15,Level = 1,Abilities = {"When Orolotl takes damage you may deal 1 damage to any creature."},AmountInDeck = 1
+	},
+	{
+		Name = "Plasnail",TexturePath = "images/creatures/plasma/plasnail.png",CardType = "creature",Type = "Plasma",Health = 6,CatchRate = 13,Level = 1,Abilities = {"Plasnail starts the battle with +1 fortitude."},AmountInDeck = 1
+	},
+	{
+		Name = "Ionora",TexturePath = "images/creatures/plasma/ionora.png",CardType = "creature",Type = "Plasma",Health = 7,CatchRate = 14,Level = 1,Abilities = {"Once per turn you may fuse two dice."},AmountInDeck = 1
+	},
+	{
+		Name = "Curro",TexturePath = "images/creatures/plasma/curro.png",CardType = "creature",Type = "Plasma",Health = 7,CatchRate = 17,Level = 2,Abilities = {"Curro starts the battle with +1 strength.","When Curro gets targeted by a friendly skill you may deal 1 damage to any creature."},AmountInDeck = 1
+	},
+	{
+		Name = "Reygulya",TexturePath = "images/creatures/plasma/reygulya.png",CardType = "creature",Type = "Plasma",Health = 10,CatchRate = 16,Level = 2,Abilities = {"Once per turn you may deal 1 damage for every {{D:6}} in your roll."},AmountInDeck = 1
+	},
+	{
+		Name = "Kaurybri",TexturePath = "images/creatures/plasma/kaurybri.png",CardType = "creature",Type = "Plasma",Health = 9,CatchRate = 16,Level = 2,Abilities = {"If Kaurybri does 3 or more damage with one skill you may give target creature STUN 1."},AmountInDeck = 1
+	},
+	{
+		Name = "Coiler",CardType = "creature",Type = "Plasma",Health = 13,CatchRate = 16,Level = 3,Abilities = {"You may remove STUN 4 from any creature, then give Coiler +1 strength.","Once per turn you may give STUN 4 to any creature, then give Coiler -1 fortitude."},AmountInDeck = 1
+	},
+	{
+		Name = "Decayadile",CardType = "creature",Type = "Plasma",Health = 12,CatchRate = 19,Level = 3,Abilities = {"When Decayadile deals DMG you may FUSE one used and one unused die.","When you fuse two dice you may deal halve the excess value (ROUND UP) as damage."},AmountInDeck = 1
+	},
+	{
+		Name = "Ohmkey",TexturePath = "images/creatures/plasma/ohmkey.png",CardType = "creature",Type = "Plasma",Health = 15,CatchRate = 19,Level = 3,Abilities = {"Ohmkey always deals damage to every stunned creature as well as its original target.","Instead of dealing damage you, may choose to give your target STUN 3."},AmountInDeck = 1
 	},
 	{
 		Name = "Blohked",TexturePath = "images/creatures/crystal/blohked.png",CardType = "creature",Type = "crystal",Health = 8,CatchRate = 13,Level = 1,Abilities = {"When Splintrat uses a skill deal 1 damage.","When Splintrat takes heart damage deal 1 damage to another friendly creature."},AmountInDeck = 1
@@ -106,32 +133,5 @@ Creatures = {
 	},
 	{
 		Name = "Farottodon",CardType = "creature",Type = "Void",Health = 14,CatchRate = 20,Level = 3,Abilities = {"Farottodon cannot have abilities","Farottodon can use abilities of all typings.","Farottodon can use abilities from every creature in play"},AmountInDeck = 1
-	},
-	{
-		Name = "Woox",TexturePath = "images/creatures/radioactive/woox.png",CardType = "creature",Type = "Radioactive",Health = 11,CatchRate = 14,Level = 1,Abilities = {"When you roll a {{D:6}} deal 1 damage to Woox."},AmountInDeck = 1
-	},
-	{
-		Name = "Brijast",TexturePath = "images/creatures/radioactive/brijast.png",CardType = "creature",Type = "Radioactive",Health = 9,CatchRate = 15,Level = 1,Abilities = {"Once per turn you may decrement the value of one die by one."},AmountInDeck = 1
-	},
-	{
-		Name = "Borboa",TexturePath = "images/creatures/radioactive/borboa.png",CardType = "creature",Type = "Radioactive",Health = 7,CatchRate = 16,Level = 1,Abilities = {"When Borboa takes 3 or more damage in a turn it gains +1 strength and +1 fortitude."},AmountInDeck = 1
-	},
-	{
-		Name = "Uturu",CardType = "creature",Type = "Radioactive",Health = 11,CatchRate = 15,Level = 2,Abilities = {"Every turn deal 1 damage to Uturu, another friendly creature, and an opposing creature.","When Uturu deals damage with a skill restore 1 heart to it."},AmountInDeck = 1
-	},
-	{
-		Name = "Nukeraken",TexturePath = "images/creatures/radioactive/nukeraken.png",CardType = "creature",Type = "Radioactive",Health = 7,CatchRate = 16,Level = 2,Abilities = {"When Nukeraken takes exactly 1 damage it gains 2 heart."},AmountInDeck = 1
-	},
-	{
-		Name = "Decaynt",CardType = "creature",Type = "Radioactive",Health = 13,CatchRate = 13,Level = 2,Abilities = {"Decaynt starts the battle with -1 fortitude.","At the end of every turn, Decaynt gains 2 heart."},AmountInDeck = 1
-	},
-	{
-		Name = "Samoroth",TexturePath = "images/creatures/radioactive/samoroth.png",CardType = "creature",Type = "Radioactive",Health = 12,CatchRate = 19,Level = 3,Abilities = {"When Samoroth takes damage SET 1 die."},AmountInDeck = 1
-	},
-	{
-		Name = "SO-7",TexturePath = "images/creatures/radioactive/so-7.png",CardType = "creature",Type = "Radioactive",Health = 16,CatchRate = 16,Level = 3,Abilities = {"SO-7 takes 4 DMG at the beginning of every turn.","If SO-7 dies because of its trait, deal 8 DMG to any creature."},AmountInDeck = 1
-	},
-	{
-		Name = "Snomora",TexturePath = "images/creatures/radioactive/Snomora.png",CardType = "creature",Type = "Radioactive",Health = 14,CatchRate = 20,Level = 3,Abilities = {"When Snomora takes damage decrease one of your opponents dice.","At the end of turn, deal damage equal to the amount of {{D:1}} in your opponents roll."},AmountInDeck = 1
 	},
 }

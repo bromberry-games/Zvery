@@ -1,19 +1,63 @@
 local Decker = require("decker")
 local CreaturesScript = require("creatures")
 local AbilitiesScript = require("abilities")
+local pdfSpawner = require("spawnpdf")
 
---local AbilitiesScript = require("abilities_json")
 local mutationDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/mutation-full-grid.png'
 local creatureDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/creature-full-grid.png'
 local abilityDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/adaptation-full-grid.png'
-
-
+local backTemplate = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/back-templates/card-back.png'
+local rulesLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/rules-new-structure/rules.pdf'
+local refernceSheetLink ='https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/reference-sheet/reference-sheet.png'
 
 
 local currentPlayer = ""
 local otherPlayer = ""
 local playersSetup = 0
 local selectedAt = 0
+
+
+local zOffset = 0
+local xOffset = 0
+local zSpacing = 4.0
+local xSpacing = 4.0
+local middlePosZ = 0.0 + zOffset
+--local middlePosX = 11.0 + xOffset
+local middlePosX = 0 + xOffset
+
+local abilityDeckPos = {middlePosX - 18.0, 1, middlePosZ}
+
+local lvlX = middlePosX - 14.0
+local lvlOnePos = {lvlX, 0, middlePosZ - zSpacing}
+local lvlTwoPos = {lvlX, 0, middlePosZ}
+local lvlThreePos = {lvlX, 0, middlePosZ + zSpacing}
+
+local creatureX = middlePosX - 10.0
+local creaturePos1 = {creatureX, 1, middlePosZ - zSpacing}
+local creaturePos2 = {creatureX, 1, middlePosZ}
+local creaturePos3  = {creatureX, 1, middlePosZ + zSpacing} 
+local referenceBluePos = {creatureX, 1, middlePosZ + 2* zSpacing} 
+
+local middlePos1 = {middlePosX - xSpacing, 1.0, middlePosZ}
+local middlePos2 = {middlePosX, 1.0, middlePosZ}
+local middlePos3 = {middlePosX + xSpacing, 1.0, middlePosZ}
+
+local mutationX = middlePosX + 10
+local mutationPos1 = {mutationX, 1, middlePosZ + zSpacing}
+local mutationPos2 = {mutationX, 1, middlePosZ}
+local mutationPos3 = {mutationX,1, middlePosZ - zSpacing}
+local referenceWhitePos = {mutationX, 1, middlePosZ - 2* zSpacing}
+local muationDeckPos = {mutationX + xSpacing,1,middlePosZ}
+local rulesPos = {mutationX + 2*xSpacing,1,middlePosZ}
+
+local discardPilePos = {25.0,1, middlePosZ + zSpacing}
+
+local creature1X = middlePosX - 4.0
+local whiteCreature1Pos = {creature1X, 1, middlePosZ - 8.0}
+local whiteAbilityPos = {creature1X, 1, whiteCreature1Pos[3] - zSpacing}
+
+local blueCreature1Pos = {creature1X, 1, middlePosZ + 8.0}
+local blueAbilityPos = {creature1X, 1, blueCreature1Pos[3] + zSpacing}
 
 local function lockAndFloor(obj)
    obj.setLock(true)
@@ -29,8 +73,8 @@ local function createScriptingZoneAtPosition(position, name)
     return zone
 end
 
-function switchPlayers()
-   temp = currentPlayer 
+local function switchPlayers()
+   local temp = currentPlayer 
    currentPlayer = otherPlayer
    otherPlayer = temp
 end
@@ -47,6 +91,42 @@ function DestroyAll()
     end
 end
 
+local function createReferenceSheets()
+    local card = spawnObject(
+        {
+            type = "card",
+            position = referenceBluePos,
+        }
+    )
+    card.setCustomObject(
+        {
+            face = refernceSheetLink,
+            back = refernceSheetLink
+        }
+    )
+    local card = spawnObject(
+        {
+            type = "card",
+            position = referenceWhitePos,
+        }
+    )
+    card.setCustomObject(
+        {
+            face = refernceSheetLink,
+            back = refernceSheetLink
+        }
+    )
+    card.setRotation({0,180,0})
+end
+
+local function createRules()
+    local rules = SpawnAPDF(rulesLink,"rules", "DA rules")
+    Wait.frames(function ()
+        rules.setPosition(rulesPos)
+    end
+    , 5 )
+end
+
 function GameSetup()
     local creatureDeck =  SpawnDeck(creatureDeckLink)
     currentPlayer = 'White'
@@ -56,11 +136,15 @@ function GameSetup()
     ParseCreatureDeck(creatureDeck, Creatures)
     setupAbilityDeck()
     setupMutationDeck()
+    createRules()
+    createReferenceSheets()
+    local zStartBlue = middlePosZ - 8
+    local zStartWhite = middlePosZ + 8
     for i = 1, 5, 1 do
         spawnObject(
             {
                 type = "Die_6",
-                position = {21,i,-10},
+                position = {middlePosX + 14,i,zStartBlue},
             }
         )
     end
@@ -68,7 +152,7 @@ function GameSetup()
         spawnObject(
             {
                 type = "Die_20",
-                position = {21,0,-10-i},
+                position = {middlePosX + 14,0,zStartBlue-i},
             }
         )
     end
@@ -76,7 +160,7 @@ function GameSetup()
         spawnObject(
             {
                 type = "Die_6",
-                position = {-3,i,6},
+                position = {middlePosX - 14.0,i, zStartWhite},
             }
         )
     end
@@ -84,41 +168,39 @@ function GameSetup()
         spawnObject(
             {
                 type = "Die_20",
-                position = {-3,0,6 + i},
+                position = {middlePosX - 14.0,0,zStartWhite + i},
             }
         )
     end
 end
 
 
-abilityCards = {}
 function setupAbilityDeck()
     local abilityDeck = SpawnDeck(abilityDeckLink)
     local len = #Abilities + 1
     for i, card in ipairs(Abilities) do
         card = abilityDeck.takeObject({i})
         card.setName(Abilities[len - i].Name)
-        jsonData = JSON.encode(Abilities[len - i])
+        local jsonData = JSON.encode(Abilities[len - i])
         card.setDescription(jsonData)
-        card.setPosition({-7.0,1,-2.0})
+        card.setPosition(abilityDeckPos)
         card.flip()
     end
-    AbilityCardZone = createScriptingZoneAtPosition({-7.0,1,-2.0}, "Ability Card Zone")
+    AbilityCardZone = createScriptingZoneAtPosition(abilityDeckPos, "Ability Card Zone")
 end
 
 function setupMutationDeck()
     local mutationDeck = SpawnDeck(mutationDeckLink)
-    mutationDeck.setPosition({25.0,1,-2.0})
+    mutationDeck.setPosition(muationDeckPos)
     mutationDeck.flip()
     mutationDeck.shuffle()
-    mutationDeck.takeObject({0}).setPosition({21.0,1,2.0})
-    mutationDeck.takeObject({1}).setPosition({21.0,1,-2.0})
-    mutationDeck.takeObject({2}).setPosition({21.0,1,-6.0})
+    mutationDeck.takeObject({0}).setPosition(mutationPos1)
+    mutationDeck.takeObject({1}).setPosition(mutationPos2)
+    mutationDeck.takeObject({2}).setPosition(mutationPos3)
 end
 
 function SpawnDeck(cardFaces)
-    local cardBack = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/back-templates/card-back.png'
-    local cardAsset = Decker.Asset(cardFaces, cardBack, {width = 10, height = 5})
+    local cardAsset = Decker.Asset(cardFaces, backTemplate, {width = 10, height = 5})
     local myDeck = Decker.AssetDeck(cardAsset,45)
     --return myDeck:spawn({position = {-4, 3, 0}, sideways = true})
     return myDeck:spawn({position = {-4, 3, 0}})
@@ -128,12 +210,9 @@ function ParseCreatureDeck(creatureDeck, creatures)
     creatureDeck.setName("Creature deck")
     local objects = creatureDeck.getObjects()
 
-    local lvlOnePosition = {-3.0, 0, -6.0}
-    local lvlTwoPosition = {-3.0, 0, -2.0}
-    local lvlThreePosition = {-3.0, 0, 2.0}
-    local zoneLvl1 = createScriptingZoneAtPosition(lvlOnePosition, "ZoneLvl1")
-    local zoneLvl2 = createScriptingZoneAtPosition(lvlTwoPosition, "ZoneLvl2")
-    local zoneLvl3 = createScriptingZoneAtPosition(lvlThreePosition, "ZoneLvl3")
+    local zoneLvl1 = createScriptingZoneAtPosition(lvlOnePos, "ZoneLvl1")
+    local zoneLvl2 = createScriptingZoneAtPosition(lvlTwoPos, "ZoneLvl2")
+    local zoneLvl3 = createScriptingZoneAtPosition(lvlThreePos, "ZoneLvl3")
 
     local len = #creatures + 1
     for i, card in ipairs(objects) do
@@ -148,11 +227,11 @@ function ParseCreatureDeck(creatureDeck, creatures)
             jsonData = JSON.encode(creature)
             tempCard.setDescription(jsonData)
             if(creature.Level == 1) then
-                tempCard.setPosition(lvlOnePosition)
+                tempCard.setPosition(lvlOnePos)
             elseif (creature.Level == 2) then
-                tempCard.setPosition(lvlTwoPosition)
+                tempCard.setPosition(lvlTwoPos)
             else 
-                tempCard.setPosition(lvlThreePosition)
+                tempCard.setPosition(lvlThreePos)
             end
         end
     end 
@@ -181,9 +260,6 @@ function setupLvl3(zoneLvl3)
    lockAndFloor(deck)
 end
 
-local middlePos1 = {7.0, 1.0, -2.0}
-local middlePos2 = {7.0, 1.0, -2.0}
-local middlePos3 = {7.0, 1.0, -2.0}
 
 local function createSbuttonsForCurrentPlayer() 
     local offset = 0
@@ -210,8 +286,6 @@ end
 function setupLvl2(zoneLvl2)
     local deck = shuffleDeckInZone(zoneLvl2) 
     --deck.setLock(true)
-    middlePos2 = {middlePos1[1] + 4, middlePos1[2], middlePos1[3]}
-    middlePos3 = {middlePos2[1] + 4, middlePos2[2], middlePos2[3]}
     local card1 = deck.takeObject({0})
     card1.setPosition(middlePos1)
     card1.setLock(true)
@@ -231,10 +305,9 @@ end
 
 function setupLvl1(zoneLvl1)
     local deck = shuffleDeckInZone(zoneLvl1)
-    local xPos = 1.0
-    deck.takeObject({0}).setPosition({xPos,1,-6.0})
-    deck.takeObject({1}).setPosition({xPos,1,-2.0})
-    deck.takeObject({2}).setPosition({xPos,1,2.0})
+    deck.takeObject({0}).setPosition(creaturePos1)
+    deck.takeObject({1}).setPosition(creaturePos2)
+    deck.takeObject({2}).setPosition(creaturePos3)
 end
 
 
@@ -308,7 +381,7 @@ local function moveCardsFromZonesToDiscard(zones)
     for i, zone in ipairs(zones) do
         local creature = selectCreatureAtZone(zone)
         if creature ~= nil then
-            creature.setPosition({25.0,1,2.0})
+            creature.setPosition(discardPilePos)
         end
     end
 end
@@ -335,6 +408,8 @@ function getAbilityZoneDeck()
     end
 end
 
+
+
 function SelectCard(creature)
     local savedData = JSON.decode(creature.getDescription())
     local typing = savedData["Type"]
@@ -348,20 +423,20 @@ function SelectCard(creature)
             selectedAbility = abilityCard
             break
         else
-            abilityCard.setPosition({-7.0,1,-2.0})
+            abilityCard.setPosition(abilityDeckPos)
         end
     end
 
     selectedAbility.flip()
     creature.setLock(false)
     if currentPlayer == "White" then
-        selectedAbility.setPosition({7.0,1,-14.0})
-        creature.setPosition({7,1,-10}) 
+        selectedAbility.setPosition(whiteAbilityPos)
+        creature.setPosition(whiteCreature1Pos) 
         creature.setRotation({0, 180, 0})
         selectedAbility.setRotation({0, 90, 0})
     else
-        creature.setPosition({7,1,8}) 
-        selectedAbility.setPosition({7.0, 1, 12.0})
+        creature.setPosition(blueCreature1Pos) 
+        selectedAbility.setPosition(blueAbilityPos)
         selectedAbility.setRotation({0, -90, 0})
     end
 end
