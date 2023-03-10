@@ -23,11 +23,15 @@ function Helpers.LockAndFloor(obj)
    obj.setPosition({pos[1], 0, pos[3]})
 end
 
-function Helpers.SelectCardAtZone(zone)
+function Helpers.SelectFirstObjectInZone(zone)
     local objects = zone.getObjects()
     for i, object in ipairs(objects) do
         return object
     end
+end
+
+function Helpers.ZoneIsEmpty(zone)
+    return #zone.getObjects() == 0
 end
 
 function Helpers.DestroyAllInTable(toDestroy)

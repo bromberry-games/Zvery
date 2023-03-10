@@ -1,5 +1,6 @@
 local Spawner = {}
 
+
 local refernceSheetLink ='https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/reference-sheet/reference-sheet.png'
 
 function Spawner.PDF(url, name, description)
@@ -62,15 +63,17 @@ local fontColor = {
     g = 0.25,
     b = 0.25
 }
+
+
 function Spawner.SelectButton(pos, functionName, invisbleTo)
     local checker = spawnObject({type="Checker_black", name="SelectButton"})
     checker.setPosition(pos)
     checker.setInvisibleTo({invisbleTo})
     checker.setLock(true)
-    local button = checker.createButton({
+    local params = {
         label = "Select",
         click_function = functionName,
-        function_owner = self,
+        --function_owner = self,
         position = {0,1,0},
         rotation = {0, 180, 0},
         height = 440,
@@ -78,7 +81,16 @@ function Spawner.SelectButton(pos, functionName, invisbleTo)
         font_size = 260,
         font_color = fontColor,
         color = buttonColor,
-    })
+    }
+    --checker.createButton(params)
+    --checker.setVar("params", JSON.encode(params))
+    local paramstring = JSON.encode(params)
+    checker.setLuaScript([[
+        params = ']] .. paramstring .. [['
+        function onLoad()
+            self.createButton(JSON.decode(params))
+        end
+    ]])
     return checker
 end
 
@@ -101,6 +113,7 @@ function Spawner.D20ForCreature(position, creatureData)
         dice.setColorTint({249 / 255, 220 / 255, 92 / 255})
     end
     dice.setValue(creatureData["Health"])
+    return dice
 end
 
 

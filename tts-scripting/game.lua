@@ -6,6 +6,8 @@ local Spawner = require("spawner")
 
 local mutationDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/mutation-full-grid.png'
 local creatureDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/creature-full-grid.png'
+local Game = {}
+
 local abilityDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/tts/adaptation-full-grid.png'
 local backTemplate = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/back-templates/card-back.png'
 local rulesLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/rules-new-structure/rules.pdf'
@@ -16,24 +18,40 @@ local otherPlayer = ""
 local playersSetup = 0
 local selectedAt = 0
 local creatureZones 
+local creatureDeckZones
 local fightCreatureButtons 
 local mutationZones
 local mutationButtons
 local mutationSelectedCount
+local mutationDeck
 local selectedLevel
 local selectedStartButtons 
 
+function Game.OnLoad()
+    print(currentPlayer) 
+end
+
+function Game.OnSave()
+end
+
 local function initVars()
-    currentPlayer = "White"
-    otherPlayer = "Blue"
+    local rand = math.random()
+    if rand < 0.5 then
+        currentPlayer = "White"
+        otherPlayer = "Blue"
+    else
+        currentPlayer = "Blue"
+        otherPlayer = "White"
+    end
     playersSetup = 0
     selectedAt = 0
     creatureZones = {}
+    creatureDeckZones = {}
     fightCreatureButtons = {}
     mutationZones = {}
     mutationButtons = {}
-    mutationSelectedCount = 0
     selectedStartButtons = {}
+    UI.hide("end-turn-button")
 end
 
 -- Positions --
@@ -71,7 +89,7 @@ local referenceWhitePos = {mutationX, 1, middlePosZ - 2* zSpacing}
 local muationDeckPos = {mutationX + xSpacing,1,middlePosZ}
 local rulesPos = {mutationX + 2*xSpacing,1,middlePosZ}
 
-local discardPilePos = {25.0,1, middlePosZ + zSpacing}
+local discardPilePos = {middlePosX + 14.0,1, middlePosZ + zSpacing}
 
 local creature1X = middlePosX - 4.0
 local whiteCreature1Pos = {creature1X, 1, middlePosZ - 2*zSpacing}
@@ -154,7 +172,7 @@ function setupAbilityDeck()
 end
 
 function setupMutationDeck()
-    local mutationDeck = SpawnDeck(mutationDeckLink)
+    mutationDeck = SpawnDeck(mutationDeckLink)
     mutationDeck.setPosition(muationDeckPos)
     mutationDeck.flip()
     mutationDeck.shuffle()
@@ -171,24 +189,30 @@ function SpawnDeck(cardFaces)
 end
 
 function ParseCreatureDeck(creatureDeck, creatures)
-    creatureDeck.setName("Creature deck")
     local objects = creatureDeck.getObjects()
 
     local zoneLvl1 = Helpers.CreateScriptingZoneAtPosition(lvlOnePos, "ZoneLvl1")
     local zoneLvl2 = Helpers.CreateScriptingZoneAtPosition(lvlTwoPos, "ZoneLvl2")
     local zoneLvl3 = Helpers.CreateScriptingZoneAtPosition(lvlThreePos, "ZoneLvl3")
+    table.insert(creatureDeckZones, zoneLvl1)
+    table.insert(creatureDeckZones, zoneLvl2)
+    table.insert(creatureDeckZones, zoneLvl3)
 
     local len = #creatures + 1
     for i, card in ipairs(objects) do
         local tempCard = creatureDeck.takeObject({
             i
         })
+        local creature = creatures[len - i] 
         if tempCard == nil then
             print("Card is null")
+        elseif  creature.TexturePath == nil then
+            tempCard.destruct()
         else
-            local creature = creatures[len - i] 
             tempCard.setName(creature.Name)
-            jsonData = JSON.encode(creature)
+            local jsonData = JSON.encode(creature)
+            --card.description = jsonData
+            --card.name = creature.Name
             tempCard.setDescription(jsonData)
             if(creature.Level == 1) then
                 tempCard.setPosition(lvlOnePos)
@@ -286,7 +310,7 @@ end
 
 local function moveCardsFromZonesToDiscard(zones)
     for i, zone in ipairs(zones) do
-        local creature = Helpers.SelectCardAtZone(zone)
+        local creature = Helpers.SelectFirstObjectInZone(zone)
         if creature ~= nil then
             creature.setPosition(discardPilePos)
         end
@@ -295,6 +319,13 @@ end
 
 local function createSelectMutationButtons()
     mutationSelectedCount = 0
+    mutationButtons = {}
+    if selectedLevel == 3 then
+        SelectMutation1()
+        SelectMutation2()
+        SelectMutation3()
+        return
+    end
     for i, mutationZone in ipairs(mutationZones) do
         local mutationPos = mutationZone.getPosition()
         local button = Spawner.SelectButton({mutationPos[1] - 3.0, mutationPos[2], mutationPos[3]}, "SelectMutation" .. i,otherPlayer)
@@ -302,22 +333,43 @@ local function createSelectMutationButtons()
     end
 end
 
-function EndTurn()
-   print("Turn ended") 
+local function refillMutations()
+    for _, mutationZone in ipairs(mutationZones) do
+        if Helpers.ZoneIsEmpty(mutationZone) then        
+           local mutation = mutationDeck.takeObject({index = 0})
+           mutation.setPosition(mutationZone.getPosition())
+           mutation.flip()
+        end
+    end
 end
 
+local function refillCreatures()
+    for _, creatureZone in ipairs(creatureZones) do
+        if Helpers.ZoneIsEmpty(creatureZone) then
+            if selectedLevel ~= 3 then
+               local creature = Helpers.SelectFirstObjectInZone(creatureDeckZones[selectedLevel + 1]).takeObject({index = 0}) 
+               creature.setPosition(creatureZone.getPosition())
+               creature.flip()
+            end
+        end
+    end 
+end
+
+
 local function createEndTurnButton()
-    UI.setXml(UI.getXml() .. [[
-        <Button height="10%" width="10%" visibility="]]..currentPlayer.. [[" rectAlignment="MiddleRight" onClick="EndTurn">End turn</Button>
-    ]])
+    UI.show("end-turn-button")
+    UI.setAttribute("end-turn-button", "visibility", currentPlayer)
 end
 
 local function selectMutationAtZone(index)
-    local mutation = Helpers.SelectCardAtZone(mutationZones[index]) 
-    mutationSelectedCount = mutationSelectedCount + 1
+    local mutation = Helpers.SelectFirstObjectInZone(mutationZones[index]) 
+    local playerDirection = currentPlayer == 'White' and -1 or 1
     mutation.setRotation({0, 90, 0})
-    mutation.setPosition({middlePos1[1], 1, middlePos1[3] +  zSpacing})
-    if mutationSelectedCount >= selectedLevel then
+    mutation.setPosition({middlePos1[1] + xSpacing * mutationSelectedCount, 1, middlePos1[3] +  zSpacing * playerDirection})
+    mutationSelectedCount = mutationSelectedCount + 1
+    if #mutationButtons == 0 then
+        return
+    elseif mutationSelectedCount >= selectedLevel then
         Helpers.DestroyAllInTable(mutationButtons) 
         createEndTurnButton()
     else
@@ -340,8 +392,11 @@ end
     
 local function selectCreatureToFightAtZone(zone)
     if(currentPlayer == 'White') then
+        selectedLevel = SelectCreatureWithAbility(
+            Helpers.SelectFirstObjectInZone(zone), {middlePos1[1], 1, middlePos1[3] + 0.65 * zSpacing}, middlePos1, -1
+        )
     elseif (currentPlayer == 'Blue') then
-        selectedLevel = SelectCreatureWithAbility(Helpers.SelectCardAtZone(zone), {middlePos1[1], 1, middlePos1[3] - 0.75 * zSpacing}, middlePos1, 1)
+        selectedLevel = SelectCreatureWithAbility(Helpers.SelectFirstObjectInZone(zone), {middlePos1[1], 1, middlePos1[3] - 0.65 * zSpacing}, middlePos1, 1)
     end
     Helpers.DestroyAllInTable(fightCreatureButtons)
     createSelectMutationButtons()
@@ -360,6 +415,7 @@ function SelectCreatureToFight3()
 end
 
 local function createFightCreatureButtons()
+    fightCreatureButtons = {}
     for i, creatureZone in ipairs(creatureZones) do
         local creaturePos = creatureZone.getPosition()
         local button = Spawner.SelectButton({creaturePos[1] + 3.0, creaturePos[2], creaturePos[3]}, "SelectCreatureToFight" .. i,otherPlayer)
@@ -367,12 +423,21 @@ local function createFightCreatureButtons()
     end
 end
 
+function EndTurn()
+    print("EndTurn")
+    refillMutations()
+    refillCreatures()
+    UI.hide("end-turn-button")
+    switchPlayers()
+    createFightCreatureButtons()
+end
+
 
 function SelectCreatureAtZoneAndManageGame(zone)
     if(currentPlayer == 'White') then
-        SelectCreatureWithAbility(Helpers.SelectCardAtZone(zone), whiteAbilityPos, whiteCreature1Pos, 1)
+        SelectCreatureWithAbility(Helpers.SelectFirstObjectInZone(zone), whiteAbilityPos, whiteCreature1Pos, 1)
     elseif currentPlayer == 'Blue' then
-        SelectCreatureWithAbility(Helpers.SelectCardAtZone(zone), blueAbilityPos, blueCreature1Pos, -1)
+        SelectCreatureWithAbility(Helpers.SelectFirstObjectInZone(zone), blueAbilityPos, blueCreature1Pos, -1)
     end
 
     playersSetup = playersSetup + 1
@@ -409,6 +474,7 @@ local function setCreatureAndAbilityToPos(ability, abilityPos, creature, creatur
     ability.setPosition(abilityPos)
     creature.setPosition(creaturePos) 
     Spawner.D20ForCreature(creaturePos, creatureData)
+    creature.addAttachment(ability)
 end
 
 function SelectCreatureWithAbility(creature, abilityPos, creaturePos, rotationScalar)
@@ -428,3 +494,4 @@ end
 
 
 
+return Game

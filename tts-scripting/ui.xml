@@ -2,3 +2,4 @@
     <Button height="100%" width="100%"  onClick="StartSetup">Setup</Button>
     <Button height="100%" width="100%"  onClick="DestroyAll">Clear</Button>
 </VerticalLayout>
+<Button id="end-turn-button" height="10%" width="10%" rectAlignment="MiddleRight" onClick="EndTurn">End turn</Button>
