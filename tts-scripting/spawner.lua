@@ -82,8 +82,6 @@ function Spawner.SelectButton(pos, functionName, invisbleTo)
         font_color = fontColor,
         color = buttonColor,
     }
-    --checker.createButton(params)
-    --checker.setVar("params", JSON.encode(params))
     local paramstring = JSON.encode(params)
     checker.setLuaScript([[
         params = ']] .. paramstring .. [['
@@ -94,10 +92,10 @@ function Spawner.SelectButton(pos, functionName, invisbleTo)
     return checker
 end
 
-function Spawner.D20ForCreature(position, creatureData)
+function Spawner.D20ForCreature(position, creatureData, direction)
     local dice = spawnObject({
         type = "Die_20",
-        position = position,
+        position = {position[1] + direction * 0.8 * (-1), position[2], position[3] + direction * 1.2},
     })
     local typing = creatureData["Type"]
     if typing == "Bubblegum" then

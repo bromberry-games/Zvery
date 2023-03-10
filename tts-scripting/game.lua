@@ -27,11 +27,17 @@ local mutationDeck
 local selectedLevel
 local selectedStartButtons 
 
-function Game.OnLoad()
-    print(currentPlayer) 
+function Game.OnLoad(save)
+    local save = JSON.decode(save)
+    currentPlayer = save.currentPlayer
+    --selectedStartButtons = save.selectedStartButtons
 end
 
 function Game.OnSave()
+    return JSON.encode({
+        currentPlayer = currentPlayer,
+        --selectedStartButtons = selectedStartButtons
+    })
 end
 
 local function initVars()
@@ -470,10 +476,10 @@ local function getFirstCardFromDeckWithType(deck, typing)
     end
 end
 
-local function setCreatureAndAbilityToPos(ability, abilityPos, creature, creaturePos, creatureData)
+local function setCreatureAndAbilityToPos(ability, abilityPos, creature, creaturePos, creatureData, direction)
     ability.setPosition(abilityPos)
     creature.setPosition(creaturePos) 
-    Spawner.D20ForCreature(creaturePos, creatureData)
+    Spawner.D20ForCreature(creaturePos, creatureData, direction)
     creature.addAttachment(ability)
 end
 
@@ -488,7 +494,7 @@ function SelectCreatureWithAbility(creature, abilityPos, creaturePos, rotationSc
     creature.setLock(false)
     creature.setRotation({0, 180 * 1/2 * (rotationScalar + 1), 0})
     selectedAbility.setRotation({0, 90 * rotationScalar, 0})
-    setCreatureAndAbilityToPos(selectedAbility, abilityPos, creature, creaturePos, savedData)
+    setCreatureAndAbilityToPos(selectedAbility, abilityPos, creature, creaturePos, savedData, rotationScalar)
     return savedData["Level"]
 end
 
