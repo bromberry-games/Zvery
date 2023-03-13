@@ -2,6 +2,9 @@ local Spawner = {}
 
 
 local refernceSheetLink ='https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/reference-sheet/reference-sheet.png'
+local statsCardLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/stat-card/stat-card.png'
+
+local tabletOpenUrl = 'https://github.com/bromberry-games/Zvery/issues'
 
 function Spawner.PDF(url, name, description)
     local myjson = [[
@@ -114,6 +117,25 @@ function Spawner.D20ForCreature(position, creatureData, direction)
     return dice
 end
 
+function Spawner.GoPiece(position)
+   local piece = spawnObject({
+       type = "go_game_piece_white",
+       position = position,
+   }) 
+   piece.setScale({0.3, 0.3, 0.3})
+   piece.use_grid = false
+   return piece
+end
+
+function Spawner.Tablet(pos)
+   local tablet = spawnObject({
+       type = "tablet",
+       position = pos
+   }) 
+   tablet.Browser.url = tabletOpenUrl
+   return tablet
+end
+
 
 function Spawner.ReferenceSheet(position)
     local card = spawnObject({
@@ -126,6 +148,18 @@ function Spawner.ReferenceSheet(position)
       back = refernceSheetLink
     })
     return card
+end
+
+function Spawner.StatsCard(pos)
+   local card = spawnObject({
+      type = "card",
+      position = pos,
+      name = "StatsCard",
+   }) 
+   card.setCustomObject({
+      face = statsCardLink,
+      back = statsCardLink
+   })
 end
 
 return Spawner

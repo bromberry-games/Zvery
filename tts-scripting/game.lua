@@ -148,7 +148,7 @@ local mutationPositions = {
     {mutationX,1, middlePosZ - zSpacing}
 }
 local referenceWhitePos = {mutationX, 1, middlePosZ - 2* zSpacing}
-local muationDeckPos = {mutationX + xSpacing,1,middlePosZ}
+local mutationDeckPos = {mutationX + xSpacing,1,middlePosZ}
 local rulesPos = {mutationX + 2*xSpacing,1,middlePosZ}
 
 local discardPilePos = {middlePosX + 14.0,1, middlePosZ + zSpacing}
@@ -192,6 +192,21 @@ local function createRules()
     rules.setPosition(rulesPos)
 end
 
+local function createStatsCards()
+    for i = 1, 4, 1 do
+        Spawner.StatsCard({mutationDeckPos[1], 1, mutationDeckPos[3] - zSpacing})
+    end
+    for i = 1, 4, 1 do
+        for j = 1, 4, 1 do
+            Spawner.GoPiece({mutationDeckPos[1] + xSpacing * (0.6 + i * 0.1), 1, mutationDeckPos[3] - zSpacing * (0.6 + 0.1 * j)})
+        end
+    end
+end
+
+local function createTablet()
+   Spawner.Tablet({rulesPos[1] + 2*xSpacing, 1, rulesPos[3]})
+end
+
 function GameSetup()
     initVars()
     local creatureDeck =  SpawnDeck(creatureDeckLink)
@@ -200,19 +215,19 @@ function GameSetup()
     setupMutationDeck()
     createRules()
     createReferenceSheets()
+    createStatsCards()
+    createTablet()
     local zStartBlue = middlePosZ - 8
     local zStartWhite = middlePosZ + 8
     for i = 1, 5, 1 do
         spawnObject({
             type = "Die_6",
             position = {middlePosX + 14,i,zStartBlue},
-        })
-    end
-    for i = 1, 5, 1 do
+        }).use_grid = false
         spawnObject({
             type = "Die_6",
             position = {middlePosX - 14.0,i, zStartWhite},
-        })
+        }).use_grid = false
     end
 end
 
@@ -235,7 +250,7 @@ end
 
 function setupMutationDeck()
     mutationDeck = SpawnDeck(mutationDeckLink)
-    mutationDeck.setPosition(muationDeckPos)
+    mutationDeck.setPosition(mutationDeckPos)
     mutationDeck.flip()
     mutationDeck.shuffle()
     for index, value in ipairs(mutationPositions) do
@@ -247,7 +262,7 @@ end
 function SpawnDeck(cardFaces)
     local cardAsset = Decker.Asset(cardFaces, backTemplate, {width = 10, height = 5})
     local myDeck = Decker.AssetDeck(cardAsset,45)
-    return myDeck:spawn({position = {-4, 3, 0}})
+    return myDeck:spawn({position = {-4, 3, 0}, hands = false})
 end
 
 function ParseCreatureDeck(creatureDeck, creatures)
@@ -323,6 +338,7 @@ local function takeCardFromDeckAndSetPosition(deck, selectedAt, position)--TODO:
     local card = deck.takeObject({selectedAt})
     card.setPosition(position)
     card.setLock(true)
+    card.use_hands = false
     return card
 end
 
