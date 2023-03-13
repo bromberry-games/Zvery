@@ -110,10 +110,10 @@ function Spawner.D20ForCreature(position, creatureData, direction)
     elseif typing == "Plasma" then
         dice.setColorTint({67 / 255, 114 / 255, 238 / 255})
     elseif typing == "crystal" then
-        print("crystal")
         dice.setColorTint({249 / 255, 220 / 255, 92 / 255})
     end
     dice.setValue(creatureData["Health"])
+    dice.use_grid = false
     return dice
 end
 

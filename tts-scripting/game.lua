@@ -33,17 +33,17 @@ local state = {
     selectedStartButtonsGUIDs = {},
     middleZonesGUID = {},
 }
-local creatureZones 
-local creatureDeckZones
-local fightCreatureButtons 
-local abilityDeckZone
+local creatureZones = {}
+local creatureDeckZones = {}
+local fightCreatureButtons = {}
+local abilityDeckZone = ""
 
-local mutationZones
-local mutationButtons
-local mutationDeck
+local mutationZones = {}
+local mutationButtons = {}
+local mutationDeck = ""
 
-local selectedStartButtons 
-local middleZones
+local selectedStartButtons = {}
+local middleZones = {}
 
 local function showEndTurnButton()
     UI.show("end-turn-button")
@@ -52,8 +52,10 @@ end
 
 function Game.OnLoad(save)
     local savestate = JSON.decode(save)
-    print("From save: " .. savestate.state.currentPlayer)
     state = savestate.state
+    if savestate.creatureDeckZonesGUIDs == nil then
+        return
+    end
 
     creatureZones = Helpers.GetObjectsFromGUIDs(state.creatureZonesGUID)
     creatureDeckZones = Helpers.GetObjectsFromGUIDs(state.creatureDeckZonesGUIDs)
@@ -76,6 +78,11 @@ function Game.OnLoad(save)
 end
 
 function Game.OnSave()
+    if abilityDeckZone == nil or abilityDeckZone == "" then
+        return JSON.encode({
+            nosave = 0      
+        })
+    end
     state.creatureZonesGUID = Helpers.GetGUIDsTable(creatureZones)
     state.creatureDeckZonesGUIDs = Helpers.GetGUIDsTable(creatureDeckZones)
     state.fightCreatureButtonsGUIDs = Helpers.GetGUIDsTable(fightCreatureButtons)
@@ -155,10 +162,10 @@ local discardPilePos = {middlePosX + 14.0,1, middlePosZ + zSpacing}
 
 local creature1X = middlePosX - 4.0
 local whiteCreature1Pos = {creature1X, 1, middlePosZ - 2*zSpacing}
-local whiteAbilityPos = {creature1X, 1, whiteCreature1Pos[3] - 0.75 * zSpacing}
+local whiteAbilityPos = {creature1X, 1, whiteCreature1Pos[3] - 0.65 * zSpacing}
 
 local blueCreature1Pos = {creature1X, 1, middlePosZ + 2*zSpacing}
-local blueAbilityPos = {creature1X, 1, blueCreature1Pos[3] + 0.75 * zSpacing}
+local blueAbilityPos = {creature1X, 1, blueCreature1Pos[3] + 0.65 * zSpacing}
 -- Positions end --
 
 
@@ -369,7 +376,6 @@ function setupLvl1(zoneLvl1)
 end
 
 function SelectCreatureAtZone1()
-    print("SelectCreatureAtZone1")
     state.selectedAt = 1
     SelectCreatureAtZoneAndManageGame(middleZones[1])
 end
@@ -496,7 +502,6 @@ local function createFightCreatureButtons()
 end
 
 function EndTurn()
-    print("EndTurn")
     refillMutations()
     refillCreatures()
     UI.hide("end-turn-button")
