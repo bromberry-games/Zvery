@@ -13,44 +13,100 @@ local backTemplate = 'https://raw.githubusercontent.com/bromberry-games/Zvery/ma
 local rulesLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/rules-new-structure/rules.pdf'
 
 
-local currentPlayer = ""
-local otherPlayer = ""
-local playersSetup = 0
-local selectedAt = 0
+local state = {
+    currentPlayer = "",
+    otherPlayer = "",
+    playersSetup = 0,
+    selectedAt = 0, 
+    mutationSelectedCount = 0,
+    selectedLevel = 0,
+
+    creatureZonesGUID = {},
+    creatureDeckZonesGUIDs = {},
+    fightCreatureButtonsGUIDs = {},
+    abilityDeckZoneGUID = 0,
+
+    mutationZonesGUIDS = {},
+    mutationButtonsGUIDs = {},
+    mutationDeckGUID = 0,
+
+    selectedStartButtonsGUIDs = {},
+    middleZonesGUID = {},
+}
 local creatureZones 
 local creatureDeckZones
 local fightCreatureButtons 
+local abilityDeckZone
+
 local mutationZones
 local mutationButtons
-local mutationSelectedCount
 local mutationDeck
-local selectedLevel
+
 local selectedStartButtons 
+local middleZones
+
+local function showEndTurnButton()
+    UI.show("end-turn-button")
+    UI.setAttribute("end-turn-button", "visibility", state.currentPlayer)
+end
 
 function Game.OnLoad(save)
-    local save = JSON.decode(save)
-    currentPlayer = save.currentPlayer
-    --selectedStartButtons = save.selectedStartButtons
+    local savestate = JSON.decode(save)
+    print("From save: " .. savestate.state.currentPlayer)
+    state = savestate.state
+
+    creatureZones = Helpers.GetObjectsFromGUIDs(state.creatureZonesGUID)
+    creatureDeckZones = Helpers.GetObjectsFromGUIDs(state.creatureDeckZonesGUIDs)
+    fightCreatureButtons = Helpers.GetObjectsFromGUIDs(state.fightCreatureButtonsGUIDs)
+    abilityDeckZone = getObjectFromGUID(state.abilityDeckZoneGUID)
+
+    mutationZones = Helpers.GetObjectsFromGUIDs(state.mutationZonesGUIDS)
+    mutationButtons = Helpers.GetObjectsFromGUIDs(state.mutationButtonsGUIDs)
+    mutationDeck = getObjectFromGUID(state.mutationDeckGUID)
+    selectedStartButtons = Helpers.GetObjectsFromGUIDs(state.selectedStartButtonsGUIDs)
+    middleZones = Helpers.GetObjectsFromGUIDs(state.middleZonesGUID)
+
+
+    if state.mutationSelectedCount >= state.selectedLevel then
+        Helpers.DestroyAllInTable(mutationButtons) 
+        showEndTurnButton()
+    else
+        UI.hide("end-turn-button")
+    end
 end
 
 function Game.OnSave()
-    return JSON.encode({
-        currentPlayer = currentPlayer,
-        --selectedStartButtons = selectedStartButtons
-    })
+    state.creatureZonesGUID = Helpers.GetGUIDsTable(creatureZones)
+    state.creatureDeckZonesGUIDs = Helpers.GetGUIDsTable(creatureDeckZones)
+    state.fightCreatureButtonsGUIDs = Helpers.GetGUIDsTable(fightCreatureButtons)
+    state.abilityDeckZoneGUID = abilityDeckZone.getGUID()
+
+    state.mutationZonesGUIDS = Helpers.GetGUIDsTable(mutationZones)
+    state.mutationButtonsGUIDs = Helpers.GetGUIDsTable(mutationButtons)
+    state.selectedStartButtonsGUIDs = Helpers.GetGUIDsTable(selectedStartButtons)
+    state.mutationDeckGUID = mutationDeck.getGUID()
+    state.middleZonesGUID = Helpers.GetGUIDsTable(middleZones)
+    return JSON.encode(
+        {state = state}
+    )
 end
 
 local function initVars()
     local rand = math.random()
+    state = {}
     if rand < 0.5 then
-        currentPlayer = "White"
-        otherPlayer = "Blue"
+        state.currentPlayer = "White"
+        state.otherPlayer = "Blue"
     else
-        currentPlayer = "Blue"
-        otherPlayer = "White"
+        state.currentPlayer = "Blue"
+        state.otherPlayer = "White"
     end
-    playersSetup = 0
-    selectedAt = 0
+    state.playersSetup = 0
+    state.selectedAt = 0
+    state.selectedLevel = 0
+    state.mutationSelectedCount = -1 --init at -1 to hide end turn button on load
+
+    middleZones = {}
     creatureZones = {}
     creatureDeckZones = {}
     fightCreatureButtons = {}
@@ -107,9 +163,9 @@ local blueAbilityPos = {creature1X, 1, blueCreature1Pos[3] + 0.75 * zSpacing}
 
 
 local function switchPlayers()
-   local temp = currentPlayer 
-   currentPlayer = otherPlayer
-   otherPlayer = temp
+   local temp = state.currentPlayer 
+   state.currentPlayer = state.otherPlayer
+   state.otherPlayer = temp
 end
 
 
@@ -174,7 +230,7 @@ function setupAbilityDeck()
         card.setPosition(abilityDeckPos)
         card.flip()
     end
-    AbilityCardZone = Helpers.CreateScriptingZoneAtPosition(abilityDeckPos, "Ability Card Zone")
+    abilityDeckZone = Helpers.CreateScriptingZoneAtPosition(abilityDeckPos, "Ability Card Zone")
 end
 
 function setupMutationDeck()
@@ -217,8 +273,6 @@ function ParseCreatureDeck(creatureDeck, creatures)
         else
             tempCard.setName(creature.Name)
             local jsonData = JSON.encode(creature)
-            --card.description = jsonData
-            --card.name = creature.Name
             tempCard.setDescription(jsonData)
             if(creature.Level == 1) then
                 tempCard.setPosition(lvlOnePos)
@@ -246,22 +300,22 @@ function setupLvl3(zoneLvl3)
    Helpers.LockAndFloor(deck)
 end
 
-local function createSbuttonsForCurrentPlayer() 
+local function createSbuttonsForcurrentPlayer() 
     selectedStartButtons = {}
     local offset = 0
-    if currentPlayer == 'White' then
+    if state.currentPlayer == 'White' then
         offset = -3.0
     else
         offset = 3.0
     end
-    if selectedAt ~= 1 then
-        selectedStartButtons[1] = Spawner.SelectButton({middlePos1[1],1,middlePos1[3] + offset}, "SelectCreatureAtZone" .. 1, otherPlayer)
+    if state.selectedAt ~= 1 then
+        selectedStartButtons[1] = Spawner.SelectButton({middlePos1[1],1,middlePos1[3] + offset}, "SelectCreatureAtZone" .. 1, state.otherPlayer)
     end
-    if selectedAt ~= 2 then
-        selectedStartButtons[2] = Spawner.SelectButton({middlePos2[1],1,middlePos2[3] + offset}, "SelectCreatureAtZone" .. 2,otherPlayer)
+    if state.selectedAt ~= 2 then
+        selectedStartButtons[2] = Spawner.SelectButton({middlePos2[1],1,middlePos2[3] + offset}, "SelectCreatureAtZone" .. 2,state.otherPlayer)
     end
-    if selectedAt ~= 3 then
-        selectedStartButtons[3] = Spawner.SelectButton({middlePos3[1],1,middlePos3[3] + offset}, "SelectCreatureAtZone" .. 3,otherPlayer)
+    if state.selectedAt ~= 3 then
+        selectedStartButtons[3] = Spawner.SelectButton({middlePos3[1],1,middlePos3[3] + offset}, "SelectCreatureAtZone" .. 3,state.otherPlayer)
     end
 end
 
@@ -279,11 +333,11 @@ function setupLvl2(zoneLvl2)
     takeCardFromDeckAndSetPosition(deck,1,middlePos2)
     takeCardFromDeckAndSetPosition(deck,2,middlePos3)
 
-    MiddleZone1 = Helpers.CreateScriptingZoneAtPosition(middlePos1, "Middle-Zone1")
-    MiddleZone2 = Helpers.CreateScriptingZoneAtPosition(middlePos2, "Middle-Zone2")
-    MiddleZone3 = Helpers.CreateScriptingZoneAtPosition(middlePos3, "Middle-Zone3")
+    middleZones[1] = Helpers.CreateScriptingZoneAtPosition(middlePos1, "Middle-Zone1")
+    middleZones[2] = Helpers.CreateScriptingZoneAtPosition(middlePos2, "Middle-Zone2")
+    middleZones[3] = Helpers.CreateScriptingZoneAtPosition(middlePos3, "Middle-Zone3")
 
-    createSbuttonsForCurrentPlayer()
+    createSbuttonsForcurrentPlayer()
 end
 
 function setupLvl1(zoneLvl1)
@@ -300,18 +354,18 @@ end
 
 function SelectCreatureAtZone1()
     print("SelectCreatureAtZone1")
-    selectedAt = 1
-    SelectCreatureAtZoneAndManageGame(MiddleZone1)
+    state.selectedAt = 1
+    SelectCreatureAtZoneAndManageGame(middleZones[1])
 end
 
 function SelectCreatureAtZone2()
-    selectedAt = 2
-    SelectCreatureAtZoneAndManageGame(MiddleZone2)
+    state.selectedAt = 2
+    SelectCreatureAtZoneAndManageGame(middleZones[2])
 end
 
 function SelectCreatureAtZone3()
-    selectedAt = 3
-    SelectCreatureAtZoneAndManageGame(MiddleZone3)
+    state.selectedAt = 3
+    SelectCreatureAtZoneAndManageGame(middleZones[3])
 end
 
 local function moveCardsFromZonesToDiscard(zones)
@@ -324,9 +378,9 @@ local function moveCardsFromZonesToDiscard(zones)
 end
 
 local function createSelectMutationButtons()
-    mutationSelectedCount = 0
+    state.mutationSelectedCount = 0
     mutationButtons = {}
-    if selectedLevel == 3 then
+    if state.selectedLevel == 3 then
         SelectMutation1()
         SelectMutation2()
         SelectMutation3()
@@ -334,7 +388,7 @@ local function createSelectMutationButtons()
     end
     for i, mutationZone in ipairs(mutationZones) do
         local mutationPos = mutationZone.getPosition()
-        local button = Spawner.SelectButton({mutationPos[1] - 3.0, mutationPos[2], mutationPos[3]}, "SelectMutation" .. i,otherPlayer)
+        local button = Spawner.SelectButton({mutationPos[1] - 3.0, mutationPos[2], mutationPos[3]}, "SelectMutation" .. i,state.otherPlayer)
         table.insert(mutationButtons, button)
     end
 end
@@ -352,8 +406,8 @@ end
 local function refillCreatures()
     for _, creatureZone in ipairs(creatureZones) do
         if Helpers.ZoneIsEmpty(creatureZone) then
-            if selectedLevel ~= 3 then
-               local creature = Helpers.SelectFirstObjectInZone(creatureDeckZones[selectedLevel + 1]).takeObject({index = 0}) 
+            if state.selectedLevel ~= 3 then
+               local creature = Helpers.SelectFirstObjectInZone(creatureDeckZones[state.selectedLevel + 1]).takeObject({index = 0}) 
                creature.setPosition(creatureZone.getPosition())
                creature.flip()
             end
@@ -362,22 +416,18 @@ local function refillCreatures()
 end
 
 
-local function createEndTurnButton()
-    UI.show("end-turn-button")
-    UI.setAttribute("end-turn-button", "visibility", currentPlayer)
-end
 
 local function selectMutationAtZone(index)
     local mutation = Helpers.SelectFirstObjectInZone(mutationZones[index]) 
-    local playerDirection = currentPlayer == 'White' and -1 or 1
+    local playerDirection = state.currentPlayer == 'White' and -1 or 1
     mutation.setRotation({0, 90, 0})
-    mutation.setPosition({middlePos1[1] + xSpacing * mutationSelectedCount, 1, middlePos1[3] +  zSpacing * playerDirection})
-    mutationSelectedCount = mutationSelectedCount + 1
+    mutation.setPosition({middlePos1[1] + xSpacing * state.mutationSelectedCount, 1, middlePos1[3] +  zSpacing * playerDirection})
+    state.mutationSelectedCount = state.mutationSelectedCount + 1
     if #mutationButtons == 0 then
         return
-    elseif mutationSelectedCount >= selectedLevel then
+    elseif state.mutationSelectedCount >= state.selectedLevel then
         Helpers.DestroyAllInTable(mutationButtons) 
-        createEndTurnButton()
+        showEndTurnButton()
     else
         mutationButtons[index].destruct()
         table.remove(mutationButtons, index)
@@ -397,12 +447,12 @@ function SelectMutation3()
 end
     
 local function selectCreatureToFightAtZone(zone)
-    if(currentPlayer == 'White') then
-        selectedLevel = SelectCreatureWithAbility(
+    if(state.currentPlayer == 'White') then
+        state.selectedLevel = SelectCreatureWithAbility(
             Helpers.SelectFirstObjectInZone(zone), {middlePos1[1], 1, middlePos1[3] + 0.65 * zSpacing}, middlePos1, -1
         )
-    elseif (currentPlayer == 'Blue') then
-        selectedLevel = SelectCreatureWithAbility(Helpers.SelectFirstObjectInZone(zone), {middlePos1[1], 1, middlePos1[3] - 0.65 * zSpacing}, middlePos1, 1)
+    elseif (state.currentPlayer == 'Blue') then
+        state.selectedLevel = SelectCreatureWithAbility(Helpers.SelectFirstObjectInZone(zone), {middlePos1[1], 1, middlePos1[3] - 0.65 * zSpacing}, middlePos1, 1)
     end
     Helpers.DestroyAllInTable(fightCreatureButtons)
     createSelectMutationButtons()
@@ -424,7 +474,7 @@ local function createFightCreatureButtons()
     fightCreatureButtons = {}
     for i, creatureZone in ipairs(creatureZones) do
         local creaturePos = creatureZone.getPosition()
-        local button = Spawner.SelectButton({creaturePos[1] + 3.0, creaturePos[2], creaturePos[3]}, "SelectCreatureToFight" .. i,otherPlayer)
+        local button = Spawner.SelectButton({creaturePos[1] + 3.0, creaturePos[2], creaturePos[3]}, "SelectCreatureToFight" .. i,state.otherPlayer)
         table.insert(fightCreatureButtons, button)
     end
 end
@@ -440,28 +490,28 @@ end
 
 
 function SelectCreatureAtZoneAndManageGame(zone)
-    if(currentPlayer == 'White') then
+    if(state.currentPlayer == 'White') then
         SelectCreatureWithAbility(Helpers.SelectFirstObjectInZone(zone), whiteAbilityPos, whiteCreature1Pos, 1)
-    elseif currentPlayer == 'Blue' then
+    elseif state.currentPlayer == 'Blue' then
         SelectCreatureWithAbility(Helpers.SelectFirstObjectInZone(zone), blueAbilityPos, blueCreature1Pos, -1)
     end
 
-    playersSetup = playersSetup + 1
+    state.playersSetup = state.playersSetup + 1
     Helpers.DestroyAllInTable(selectedStartButtons)
-    if playersSetup == 2 then
+    if state.playersSetup == 2 then
         Wait.frames(function ()
-            moveCardsFromZonesToDiscard({MiddleZone1, MiddleZone2, MiddleZone3})
+            moveCardsFromZonesToDiscard({middleZones[1], middleZones[2], middleZones[3]})
         end, 5)
         createFightCreatureButtons()
        return 
     end
     switchPlayers()
-    createSbuttonsForCurrentPlayer()
+    createSbuttonsForcurrentPlayer()
 end
 
 
 function getAbilityZoneDeck()
-    local objects = AbilityCardZone.getObjects()
+    local objects = abilityDeckZone.getObjects()
     for i, object in ipairs(objects) do
         return object
     end

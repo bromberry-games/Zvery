@@ -40,4 +40,27 @@ function Helpers.DestroyAllInTable(toDestroy)
     end
 end
 
+function Helpers.GetObjectsFromGUIDs(guids)
+    if guids == nil or #guids == 0 then
+       return {} 
+    end
+    local objects = {}
+    for _, guid in pairs(guids) do
+        local object = getObjectFromGUID(guid)
+        if object ~= nil then
+            table.insert(objects, object)
+        end
+    end
+    return objects
+end
+
+function Helpers.GetGUIDsTable(objects)
+   local guids = {} 
+   for _, object in pairs(objects) do
+       table.insert(guids, object.getGUID()) 
+   end
+   return guids
+end
+    
+
 return Helpers
