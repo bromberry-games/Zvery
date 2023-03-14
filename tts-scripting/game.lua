@@ -53,7 +53,7 @@ end
 function Game.OnLoad(save)
     local savestate = JSON.decode(save)
     state = savestate.state
-    if savestate.creatureDeckZonesGUIDs == nil then
+    if state.creatureDeckZonesGUIDs == nil then
         return
     end
 
