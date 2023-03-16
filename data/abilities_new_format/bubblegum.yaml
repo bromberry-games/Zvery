@@ -238,17 +238,16 @@
   TexturePath: "images/stable-diff/attacks/bubblegum/bubble_trouble.png"
   Skills:
     - !Skill
-      dice: 
-        - 1
-      powerup: Null
+      dice: Null
+      powerup: 10
       modifiers: Null 
-      text: "Deal DMG equal to your shield."
+      text: "Deal 3 damage."
     - !Skill
       dice: 
-        - 5
+        - 6
       powerup: Null
       modifiers: Null
-      text: "Target any creature. This turn every time it deals DMG gain 1 shield"
+      text: "Deal 2 damage and give strength +1 and fortitude -1 to target creature."
     - !Skill
       dice: Null
       powerup: 5
@@ -256,9 +255,9 @@
       text: "After target creature takes damage the controlling player may INCREMENT X. Where X is the amount of damage taken."
     - !Skill
       dice: Null
-      powerup: 12
+      powerup: 14
       modifiers: Null 
-      text: "Deal 4 DMG"
+      text: "Choose on of your opponents used dice. You may deal damage or give heart according to the dice value you choose."
   AmountInDeck: 1 
 
 - Name: "Candy coat"
@@ -267,28 +266,29 @@
   TexturePath: "images/stable-diff/attacks/bubblegum/candy_coat.png"
   Skills:
     - !Skill
-      dice: 
-        - 5
-      powerup: Null
+      dice: Null
+      powerup: 5
       modifiers: Null
-      text: "Give 2 shield"
-  #Abilities:
+      text: "INCREMENT 3."
     - !Skill
       dice: 
-        - 5
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "Target any creature. This turn any time it deals damage you may INCREMENT 1."
+    - !Skill
+      dice: 
+        - 4
         - X
       powerup: Null
-      modifiers: Null
-      text: "Deal 2 DMG Gain 3 shield."
-    - !Skill
-      dice: Null
-      powerup: 9
       modifiers: Null 
-      text: "Remove all Shield from any creature and give it to this creature"
+      text: "Deal 1 DMG 3 times."
     - !Skill
-      dice: Null
-      powerup: 16
+      dice: 
+        - S
+        - S
+      powerup: Null
       modifiers: Null 
-      text: "Deal 4 DMG"
+      text: "Deal 1 damage for every {{D:1}} in your roll. Give 1 heart for every {{D:6}}."
   AmountInDeck: 1
   
