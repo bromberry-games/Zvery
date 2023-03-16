@@ -126,14 +126,14 @@ def convert_yaml_in_directory_to_json(folder_path, name):
     with open(name + '.json', 'w') as json_file:
         json_file.write(json_data)
 
-convert_yaml_in_directory_to_json("/home/simon/Projects/CreatureCardsConverter/data/abilities_new_format", "abilities")
-convert_yaml_in_directory_to_json("/home/simon/Projects/CreatureCardsConverter/data/creatures", "creatures")
-convert_yaml_in_directory_to_json("/home/simon/Projects/CreatureCardsConverter/data/mutations", "mutations")
+#convert_yaml_in_directory_to_json("/home/simon/Projects/CreatureCardsConverter/data/abilities_new_format", "abilities")
+#convert_yaml_in_directory_to_json("/home/simon/Projects/CreatureCardsConverter/data/creatures", "creatures")
+#convert_yaml_in_directory_to_json("/home/simon/Projects/CreatureCardsConverter/data/mutations", "mutations")
 
 
-#abilities = parse_yaml_files_in_folder("/home/simon/Projects/CreatureCardsConverter/data/abilities_new_format", "Abilities")
-#save_string_into_file("./abilities.lua", abilities)
-#creatures = parse_yaml_files_in_folder("/home/simon/Projects/CreatureCardsConverter/data/creatures", "Creatures")
-#save_string_into_file("./creatures.lua", creatures)
-#mutations = parse_yaml_files_in_folder("/home/simon/Projects/CreatureCardsConverter/data/mutations", "Mutations")
-#save_string_into_file("./mutations.lua", mutations)
+abilities = parse_yaml_files_in_folder("../data/abilities_new_format", "Abilities")
+save_string_into_file("./abilities.lua", abilities)
+creatures = parse_yaml_files_in_folder("../data/creatures", "Creatures")
+save_string_into_file("./creatures.lua", creatures)
+mutations = parse_yaml_files_in_folder("../data/mutations", "Mutations")
+save_string_into_file("./mutations.lua", mutations)
