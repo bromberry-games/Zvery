@@ -83,16 +83,18 @@
     - !Skill
       dice: 
         - 5
+        - X
       powerup: Null
       modifiers: Null
-      text: ""
+      text: "Deal 1 damage for every dice with value 3 or higher in your roll. Take 1 damage for every dice with value 2 or lower."
     - !Skill
       dice: 
         - S
         - S
         - S
         - S
-      powerup: 9
+        - S
+      powerup: Null
       modifiers: Null
       text: "Give 5 heart, +1 strength and -1 fortitude to all your creatures."
   AmountInDeck: 1 
@@ -137,28 +139,30 @@
   Skills:
     - !Skill
       dice: 
-        - 1
+        - X
       powerup: Null
       modifiers: Null
-      text: "Deal 2 DMG"
+      text: "Deal 1 DMG."
+    - !Skill
+      dice: 
+        - 6
+        - 6
+      powerup: Null
+      modifiers: Null 
+      text: "Deal 2 damage. Give 2 heart. INCREMENT 1"
     - !Skill
       dice: Null
-      powerup: 12
-      modifiers: Null 
-      text: "Deal 1 DMG then give target 3 shield."
-    - !Skill
-      dice: 
-        - 5
-      powerup: 
+      powerup: 6
       modifiers: Null
-      text: "Remove 6 shield from a creature, then give it +1 fortitude."
+      text: "If target creature takes damage you may INCREMENT up to the damage it took."
     - !Skill
       dice: 
-        - "M"
-        - "M"
+        - "S"
+        - "S"
+        - "S"
       powerup: Null
       modifiers:  
-      text: "Choose a creature. The next time it would take damage it gains shield equal to the amount of DMG that would have been dealt"
+      text: "Choose a creature. The next time it would take damage it gains heart equal to the amount of damage that would have been dealt"
   AmountInDeck: 1 
 
 - Name: "Bounce back"
@@ -167,31 +171,32 @@
   TexturePath: "images/stable-diff/attacks/bubblegum/bounce_back.png"
   Skills:
     - !Skill
+      dice: Null
+      powerup: 11
+      modifiers: Null 
+      text: "Gain 2 new dice with the same value as one of your unused dice."
+    - !Skill
       dice: 
         - 3
+        - 6
       powerup: Null
       modifiers: Null 
-      text: "If you are attacking shield, deal 3 DMG, else deal 2DMG."
+      text: "Deal 3 damage or give 2 heart."
     - !Skill
       dice: 
-        - 4
         - 5
       powerup: Null
-      modifiers: Null 
-      text: "If this creature lost shield this turn deal 4 DMG, else gain 3 shield."
-    - !Skill
-      dice: Null
-      powerup: 6
       modifiers: Null  
-      text: "This turn, a creature does not lose shield when it attacks."
+      text: "Deal 1 damage. INCREMENT 1. Give 1 Heart."
     - !Skill
       dice: 
-        - S
-        - S
-        - S
+        - M
+        - M
+        - M
+        - M
       powerup: Null
       modifiers: Null
-      text: "Deal DMG to all other creatures equal to the amount of shield you have +1. Then give all creatures the amount of DMG as shield"
+      text: "Deal 3 damage to both enemy creatures. Give both of your creatures 2 heart."
   AmountInDeck: 1 
 
 - Name: "Will to live"
@@ -207,10 +212,15 @@
       text: "Deal 2 DMG"
     - !Skill
       dice: 
-        - 5 
+        - 6 
       powerup: Null
       modifiers: Null 
       text: "Give creature with 5 or less health +1 strength."
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null 
+      text: "If you have a {{D:6}} in your roll deal 3 damage, else deal 1 damage and INCREMENT 2"
     - !Skill
       dice: 
         - 5
@@ -220,11 +230,6 @@
       powerup: Null
       modifiers: Null 
       text: "Revive dead creature with full heart."
-    - !Skill
-      dice: Null
-      powerup: 9
-      modifiers: Null 
-      text: "Deal 3 DMG"
   AmountInDeck: 1 
 
 - Name: "Bubble trouble"
