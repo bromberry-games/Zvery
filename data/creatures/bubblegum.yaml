@@ -83,15 +83,15 @@
   CatchRate: 20 
   Level: 3
   Abilities:  
-    - "At the beginning of the turn, you may choose a creature. It can only lose 4 heart this turn" 
-    - "When Ruruse uses a skill you may give 1 shield."
+    - "When Ruruse takes 3 or more damage by 1 skill you may INCREMENT 3." 
+    - "When you INCREMENT a {{D:6}} set the value to {{D:1}} and gain a new {{D:1}}."
   AmountInDeck: 1 
 
 - Name: "Bubbster" 
   Type: Bubblegum 
   CardType: "creature"
-  Health: 13 
-  CatchRate: 20  
+  Health: 14 
+  CatchRate: 19
   Level: 3
   Abilities:  
     - "Every time your opponent uses a skill that does not damage this card, you may INCREMENT 1."
