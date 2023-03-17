@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'zvery-icons';
-  src: url('../font/zvery-icons.eot?99748321');
-  src: url('../font/zvery-icons.eot?99748321#iefix') format('embedded-opentype'),
-       url('../font/zvery-icons.woff2?99748321') format('woff2'),
-       url('../font/zvery-icons.woff?99748321') format('woff'),
-       url('../font/zvery-icons.ttf?99748321') format('truetype'),
-       url('../font/zvery-icons.svg?99748321#zvery-icons') format('svg');
+  src: url('../font/zvery-icons.eot?3866357');
+  src: url('../font/zvery-icons.eot?3866357#iefix') format('embedded-opentype'),
+       url('../font/zvery-icons.woff2?3866357') format('woff2'),
+       url('../font/zvery-icons.woff?3866357') format('woff'),
+       url('../font/zvery-icons.ttf?3866357') format('truetype'),
+       url('../font/zvery-icons.svg?3866357#zvery-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'zvery-icons';
-    src: url('../font/zvery-icons.svg?99748321#zvery-icons') format('svg');
+    src: url('../font/zvery-icons.svg?3866357#zvery-icons') format('svg');
   }
 }
 */
@@ -66,7 +66,7 @@
 .icon-icon_4_of_a_kind:before { content: '\e809'; } /* '' */
 .icon-icon_attack_2:before { content: '\e80a'; } /* '' */
 .icon-icon_attack_1:before { content: '\e80b'; } /* '' */
-.icon-icon_straight:before { content: '\e80c'; } /* '' */
+.icon-chain_rework_2:before { content: '\e80c'; } /* '' */
 .icon-icon_shield_1:before { content: '\e80d'; } /* '' */
 .icon-icon_shield_2:before { content: '\e80e'; } /* '' */
 .icon-icon_shield_3:before { content: '\e80f'; } /* '' */
