@@ -103,6 +103,7 @@ def parse_yaml_file(yaml_file_path):
 
 def parse_yaml_files_in_folder(folder_path, name):
     yaml_files = get_all_yaml_files_dir_and_subdirs(folder_path)
+    yaml_files.sort()
     output = name + " = {\n"
     for yaml_file in yaml_files:
         print(yaml_file)
