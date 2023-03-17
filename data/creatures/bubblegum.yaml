@@ -73,7 +73,7 @@
   Level: 3
   Abilities:  
     - "Once per turn you may deal up to 6 damage to Blastilo. Then INCREMENT up to the amount of damage Blastilo took."
-    - "Instead of INCREMENT 1 Blastilo may gain 1 heart."
+    - "Blastilo may Increment by 1 less to gain 1 heart."
   AmountInDeck: 1 
 
 - Name: "Ruruse" 
