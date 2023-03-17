@@ -6,7 +6,7 @@
   CatchRate: 12 
   Level: 1
   Abilities:  
-    - "Once per turn you may restore 1 heart for every {{D:1}} in your roll." 
+    - "Once per turn you may restore 1 heart for every {{D:6}} in your roll." 
   AmountInDeck: 1 
 
 - Name: "Chewy" 
@@ -64,7 +64,6 @@
     - "Each turn before roll you may gain 1 Heart" 
     - "At the end of the turn you may transfer half HEART of Bubblepuff onto another creature you control"
   AmountInDeck: 1 
-  
 
 - Name: "Blastilo" 
   Type: Bubblegum 
@@ -74,6 +73,7 @@
   Level: 3
   Abilities:  
     - "Once per turn you may deal up to 6 damage to Blastilo. Then INCREMENT up to the amount of damage Blastilo took."
+    - "Blastilo may increment by 1 less to gain 1 heart."
   AmountInDeck: 1 
 
 - Name: "Ruruse" 
@@ -83,18 +83,18 @@
   CatchRate: 20 
   Level: 3
   Abilities:  
-    - "At the beginning of the turn, you may choose a creature. It can only lose 4 heart this turn" 
-    - "When Ruruse uses a skill you may give 1 shield."
+    - "When Ruruse takes 3 or more damage by 1 skill you may INCREMENT 3." 
+    - "When you INCREMENT a {{D:6}} set the value to {{D:1}} and gain a new {{D:1}}."
   AmountInDeck: 1 
 
 - Name: "Bubbster" 
   Type: Bubblegum 
   CardType: "creature"
-  Health: 13 
-  CatchRate: 20  
+  Health: 14 
+  CatchRate: 19
   Level: 3
   Abilities:  
-    - "When this card takes 4 or more DMG you may give the attacker stun 2" 
-    - "Every time your opponent uses a skill that does not damage this card, gain 1 SHIElD"
+    - "Every time your opponent uses a skill that does not damage this card, you may INCREMENT 1."
+    - "When you INCREMENT a {{D:6}} you may give 1 heart."
   AmountInDeck: 1 
 
