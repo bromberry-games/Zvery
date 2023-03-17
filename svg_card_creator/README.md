@@ -1,1 +1,0 @@
-# SVG card creator
