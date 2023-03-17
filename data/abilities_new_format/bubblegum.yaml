@@ -5,28 +5,30 @@
   Skills:
     - !Skill
       dice:
-        - 5
-        - 5
-      powerup: Null
-      modifiers: Null
-      text: "Deal 3 DMG and give 2 shield"
-    - !Skill
-      dice:
+        - 6
         - X
       powerup: Null
       modifiers: Null
-      text: "Move shield from this creature to another you control"
+      text: "INCREMENT 1 for every {{D:1}} in your roll. Then deal 1 damage for every {{D:6}} in your roll."
     - !Skill
       dice: Null
-      powerup: 6
+      powerup: 7
       modifiers: Null
-      text: "Deal 2 DMG and give 1 shield"
+      text: "Deal 2 damage or give 2 heart."
     - !Skill
-      dice:
-        - 6
+      dice: 
+        - 2
       powerup: Null
       modifiers: Null
-      text: "Gain shield equal to the last amount of DMG done"
+      text: "If target creatures has more health at the end of the turn than it has right now, give it +1 strength."
+    - !Skill
+      dice:
+        - S
+        - S
+        - S
+      powerup: Null
+      modifiers: Null
+      text: "Give creature 4 heart +1 strength and -1 fortitude"
   AmountInDeck: 1 
 
 - Name: "POP!"
@@ -36,28 +38,30 @@
   Skills:
     - !Skill
       dice: 
-        - 5
+        - 6
       powerup: Null
       modifiers: Null
       text: "Deal 2 DMG"
     - !Skill
       dice: Null
-      powerup: 6
+      powerup: 9
       modifiers: Null
-      text: "Deal 2 DMG"
+      text: "Deal 1 damage for every dice your opponent used."
     - !Skill
       dice: 
         - 1
         - 5
       powerup: Null
       modifiers: Null
-      text: "Gain 4 shield"
+      text: "Give +3 heart. INCREMENT 3."
     - !Skill
       dice: 
-        - 2
+        - M
+        - M
+        - M
       powerup: Null
       modifiers: Null
-      text: "Reduce your shield by X and increment rolled dice by X divided as you choose"
+      text: "If target creature has has 7 or less heart deal 6 damage to it."
   AmountInDeck: 1 
 
 - Name: "Vulcanize"
@@ -66,27 +70,33 @@
   TexturePath: "images/stable-diff/attacks/bubblegum/vulcanize.png"
   Skills:
     - !Skill
+      dice: Null
+      powerup: 7
+      modifiers: Null
+      text: "Deal 2 damage. Give a creature 1 heart."
+    - !Skill
       dice: 
-        - 2
+        - 6
       powerup: Null
       modifiers: Null
-      text: "Deal 2 DMG"
-    - !Skill
-      dice: Null
-      powerup: 6
-      modifiers: Null
-      text: "Deal 1 DMG and increment a die by 1"
+      text: "INCREMENT 3"
     - !Skill
       dice: 
         - 5
+        - X
       powerup: Null
       modifiers: Null
-      text: "Each player gives 6 shield to their creatures, divided as they choose."
+      text: "Deal 1 damage for every dice with value 3 or higher in your roll. Take 1 damage for every dice with value 2 or lower."
     - !Skill
-      dice: Null
-      powerup: 9
+      dice: 
+        - S
+        - S
+        - S
+        - S
+        - S
+      powerup: Null
       modifiers: Null
-      text: "Remove all shields from all creatures, deal DMG to them equal to their own shield"
+      text: "Give 5 heart, +1 strength and -1 fortitude to all your creatures."
   AmountInDeck: 1 
 
 - Name: "Stretched Taut"
@@ -98,24 +108,28 @@
       dice: Null
       powerup: 4
       modifiers: Null
-      text: "Gain 1 shield"
+      text: "Give 1 heart."
     - !Skill
       dice: 
-        - 5
+        - 6
       powerup: Null
       modifiers: Null
-      text: "If this creature has 2 or more shield, deal 3 DMG, else deal 1 DMG"
+      text: "If this creature has 10 or more heart INCREMENT 3, else INCREMENT 2."
     - !Skill
       dice: Null
-      powerup: 12
+      powerup: 10
       modifiers: Null 
-      text: "Deal 3 DMG"
+      text: "Deal 3 DMG."
     - !Skill
       dice: 
-        - 3
+        - M
+        - M
+        - M
+        - X
+        - X
       powerup: Null
       modifiers: Null
-      text: "Remove this creature's shield, gain a die equal to the shield's value."
+      text: "Roll 2 new dice. INCREMENT 4. Deal 1 damage for every dice with value 4 or higher. Take 1 damage for every dice with value 3 or lower."
   AmountInDeck: 1 
 
 - Name: "Handy plasticity"
@@ -125,28 +139,30 @@
   Skills:
     - !Skill
       dice: 
-        - 1
+        - X
       powerup: Null
       modifiers: Null
-      text: "Deal 2 DMG"
+      text: "Deal 1 DMG."
+    - !Skill
+      dice: 
+        - 6
+        - 6
+      powerup: Null
+      modifiers: Null 
+      text: "Deal 2 damage. Give 2 heart. INCREMENT 1"
     - !Skill
       dice: Null
-      powerup: 12
-      modifiers: Null 
-      text: "Deal 1 DMG then give target 3 shield."
-    - !Skill
-      dice: 
-        - 5
-      powerup: 
+      powerup: 6
       modifiers: Null
-      text: "Remove 6 shield from a creature, then give it +1 fortitude."
+      text: "If target creature takes damage you may INCREMENT up to the damage it took."
     - !Skill
       dice: 
-        - "M"
-        - "M"
+        - "S"
+        - "S"
+        - "S"
       powerup: Null
       modifiers:  
-      text: "Choose a creature. The next time it would take damage it gains shield equal to the amount of DMG that would have been dealt"
+      text: "Choose a creature. The next time it would take damage it gains heart equal to the amount of damage that would have been dealt"
   AmountInDeck: 1 
 
 - Name: "Bounce back"
@@ -155,31 +171,32 @@
   TexturePath: "images/stable-diff/attacks/bubblegum/bounce_back.png"
   Skills:
     - !Skill
+      dice: Null
+      powerup: 11
+      modifiers: Null 
+      text: "Gain 2 new dice with the same value as one of your unused dice."
+    - !Skill
       dice: 
         - 3
+        - 6
       powerup: Null
       modifiers: Null 
-      text: "If you are attacking shield, deal 3 DMG, else deal 2DMG."
+      text: "Deal 3 damage or give 2 heart."
     - !Skill
       dice: 
-        - 4
         - 5
       powerup: Null
-      modifiers: Null 
-      text: "If this creature lost shield this turn deal 4 DMG, else gain 3 shield."
-    - !Skill
-      dice: Null
-      powerup: 6
       modifiers: Null  
-      text: "This turn, a creature does not lose shield when it attacks."
+      text: "Deal 1 damage. INCREMENT 1. Give 1 Heart."
     - !Skill
       dice: 
-        - S
-        - S
-        - S
+        - M
+        - M
+        - M
+        - M
       powerup: Null
       modifiers: Null
-      text: "Deal DMG to all other creatures equal to the amount of shield you have +1. Then give all creatures the amount of DMG as shield"
+      text: "Deal 3 damage to both enemy creatures. Give both of your creatures 2 heart."
   AmountInDeck: 1 
 
 - Name: "Will to live"
@@ -195,10 +212,15 @@
       text: "Deal 2 DMG"
     - !Skill
       dice: 
-        - 5 
+        - 6 
       powerup: Null
       modifiers: Null 
       text: "Give creature with 5 or less health +1 strength."
+    - !Skill
+      dice: Null
+      powerup: 9
+      modifiers: Null 
+      text: "If you have a {{D:6}} in your roll deal 3 damage, else deal 1 damage and INCREMENT 2"
     - !Skill
       dice: 
         - 5
@@ -208,11 +230,6 @@
       powerup: Null
       modifiers: Null 
       text: "Revive dead creature with full heart."
-    - !Skill
-      dice: Null
-      powerup: 9
-      modifiers: Null 
-      text: "Deal 3 DMG"
   AmountInDeck: 1 
 
 - Name: "Bubble trouble"
@@ -221,17 +238,16 @@
   TexturePath: "images/stable-diff/attacks/bubblegum/bubble_trouble.png"
   Skills:
     - !Skill
-      dice: 
-        - 1
-      powerup: Null
+      dice: Null
+      powerup: 10
       modifiers: Null 
-      text: "Deal DMG equal to your shield."
+      text: "Deal 3 damage."
     - !Skill
       dice: 
-        - 5
+        - 6
       powerup: Null
       modifiers: Null
-      text: "Target any creature. This turn every time it deals DMG gain 1 shield"
+      text: "Deal 2 damage and give strength +1 and fortitude -1 to target creature."
     - !Skill
       dice: Null
       powerup: 5
@@ -239,9 +255,9 @@
       text: "After target creature takes damage the controlling player may INCREMENT X. Where X is the amount of damage taken."
     - !Skill
       dice: Null
-      powerup: 12
+      powerup: 14
       modifiers: Null 
-      text: "Deal 4 DMG"
+      text: "Choose on of your opponents used dice. You may deal damage or give heart according to the dice value you choose."
   AmountInDeck: 1 
 
 - Name: "Candy coat"
@@ -250,28 +266,29 @@
   TexturePath: "images/stable-diff/attacks/bubblegum/candy_coat.png"
   Skills:
     - !Skill
-      dice: 
-        - 5
-      powerup: Null
+      dice: Null
+      powerup: 5
       modifiers: Null
-      text: "Give 2 shield"
-  #Abilities:
+      text: "INCREMENT 3."
     - !Skill
       dice: 
-        - 5
+        - 6
+      powerup: Null
+      modifiers: Null
+      text: "Target any creature. This turn any time it deals damage you may INCREMENT 1."
+    - !Skill
+      dice: 
+        - 4
         - X
       powerup: Null
-      modifiers: Null
-      text: "Deal 2 DMG Gain 3 shield."
-    - !Skill
-      dice: Null
-      powerup: 9
       modifiers: Null 
-      text: "Remove all Shield from any creature and give it to this creature"
+      text: "Deal 1 DMG 3 times."
     - !Skill
-      dice: Null
-      powerup: 16
+      dice: 
+        - S
+        - S
+      powerup: Null
       modifiers: Null 
-      text: "Deal 4 DMG"
+      text: "Deal 1 damage for every {{D:1}} in your roll. Give 1 heart for every {{D:6}}."
   AmountInDeck: 1
   
