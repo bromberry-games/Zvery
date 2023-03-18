@@ -65,7 +65,8 @@
     - "At the end of the turn you may transfer half HEART of Bubblepuff onto another creature you control"
   AmountInDeck: 1 
 
-- Name: "Blastilo" 
+- Name: "Amyndo" 
+  TexturePath: "images/creatures/bubblegum/amyndo.png"
   Type: Bubblegum 
   CardType: "creature"
   Health: 14 
