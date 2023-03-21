@@ -65,15 +65,16 @@
     - "At the end of the turn you may transfer half HEART of Bubblepuff onto another creature you control"
   AmountInDeck: 1 
 
-- Name: "Blastilo" 
+- Name: "Amyndo" 
+  TexturePath: "images/creatures/bubblegum/amyndo.png"
   Type: Bubblegum 
   CardType: "creature"
   Health: 14 
   CatchRate: 18 
   Level: 3
   Abilities:  
-    - "Once per turn you may deal up to 6 damage to Blastilo. Then INCREMENT up to the amount of damage Blastilo took."
-    - "Blastilo may increment by 1 less to gain 1 heart."
+    - "Once per turn you may deal up to 6 damage to Amyndo. Then INCREMENT up to the amount of damage Amyndo took."
+    - "Amyndo may increment by 1 less to gain 1 heart."
   AmountInDeck: 1 
 
 - Name: "Ruruse" 
