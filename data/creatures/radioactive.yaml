@@ -17,7 +17,7 @@
   CatchRate: 15 
   Level: 1
   Abilities:  
-    - "Once per turn you may decrement the value of one die by one."
+    - "Once per turn you may DECREMENT 2."
   AmountInDeck: 1 
 
 - Name: "Borboa"
@@ -28,7 +28,7 @@
   CatchRate: 16  
   Level: 1
   Abilities:  
-    - "When Borboa takes 3 or more damage in a turn it gains +1 strength and +1 fortitude." 
+    - "When Borboa takes 3 or more damage in a turn it gains +1 strength and +1 fortitude at the end of the turn." 
   AmountInDeck: 1 
 
 - Name: Uturu 

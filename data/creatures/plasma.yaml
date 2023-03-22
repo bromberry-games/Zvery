@@ -62,7 +62,7 @@
   CatchRate: 16
   Level: 2
   Abilities:
-    - "If Kaurybri does 3 or more damage with one skill you may give target creature STUN 1."
+    - "If Kaurybri does 3 or more damage with one skill you may give target creature STUN 3."
   AmountInDeck: 1
 
 - Name: "Coiler" 

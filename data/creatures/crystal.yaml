@@ -65,7 +65,7 @@
   CatchRate: 16 
   Level: 2
   Abilities:  
-    - "When Krika takes damage you may gain a new dice with the amount of damage Krika took."
+    - "Once per turn, when Krika takes damage you may gain a new dice with the amount of damage Krika took."
   AmountInDeck: 1 
 
 - Name: Jadambe
@@ -75,8 +75,8 @@
   CatchRate: 20 
   Level: 3
   Abilities:  
-    - "When Jadambe deals HEART damage gain 1 HEART." 
-    - "When Jadambe loses 3 or more HEART give any creature STUN 1."
+    - "When Jadambe deals damage gain 1 HEART." 
+    - "When Jadambe loses 3 or more HEART give any creature STUN 4."
   AmountInDeck: 1 
 
 - Name: Rubbortoise

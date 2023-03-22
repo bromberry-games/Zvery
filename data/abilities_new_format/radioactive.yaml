@@ -108,7 +108,7 @@
         - 4
       powerup: Null
       modifiers: Null
-      text: "This turn, when this creature is damaged, you may set the value of a die equal to the amount of damage."
+      text: "This turn, when this creature is damaged, you may set the value of a die equal to the amount of damage or DECREMENT 1."
     - !Skill
       dice: 
         - 1
@@ -264,9 +264,8 @@
       modifiers: Null
       text: "Deal 2 DMG to every creature"
     - !Skill
-      dice: 
-        - 4
-      powerup: Null
+      dice: Null
+      powerup: 3
       modifiers: Null
       text: "If a creature has 2 or less Health give it +3 HEART"
     - !Skill
