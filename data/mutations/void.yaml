@@ -77,8 +77,8 @@
   Skill:
     !Skill
     dice: 
-      - 2
-      - 2
+      - 3
+      - 3
     powerup: Null
     modifiers: Null
     text: Use the last ability that was used without paying its cost.

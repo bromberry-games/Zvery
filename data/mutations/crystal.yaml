@@ -21,8 +21,8 @@
   CardType: "mutation"
   Type: crystal 
   Mutation: Upgrade
-  Field: "Every time a creature takes damage, the controlling player may SHATTER 1."
-  Text: "+4 heart. \n-1 fortitude.\nIf this creature take DMG you may SHATTER 1."
+  Field: "Every time a creature takes damage, the controlling player may halve a dice."
+  Text: "+4 heart. \n-1 fortitude.\nIf this creature take DMG you may halve a dice."
   AmountInDeck: 1
 
 - Name: "Crystal clarity"
@@ -76,9 +76,9 @@
   Skill:
     !Skill
     dice: Null
-    powerup: 17
+    powerup: 12
     modifiers: Null
-    text: Shatter all your dice. Then remove every dice with value 2 or lower. Deal DMG equal to halve of the amount of dice removed (round up).
+    text: SHATTER 2. Deal 1 damage for every dice with value 2 or lower in your roll.
   AmountInDeck: 1
 
 #Encapsulate yourself in a big crystal to block incoming dmg
