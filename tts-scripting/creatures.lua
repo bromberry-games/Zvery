@@ -18,7 +18,7 @@ Creatures = {
 		Name = "Bubblepuff",TexturePath = "images/creatures/bubblegum/bubblepuff.png",Type = "Bubblegum",CardType = "creature",Health = 7,CatchRate = 16,Level = 2,Abilities = {"Each turn before roll you may gain 1 Heart","At the end of the turn you may transfer half HEART of Bubblepuff onto another creature you control"},AmountInDeck = 1
 	},
 	{
-		Name = "Blastilo",Type = "Bubblegum",CardType = "creature",Health = 14,CatchRate = 18,Level = 3,Abilities = {"Once per turn you may deal up to 6 damage to Blastilo. Then INCREMENT up to the amount of damage Blastilo took.","Blastilo may increment by 1 less to gain 1 heart."},AmountInDeck = 1
+		Name = "Amyndo",TexturePath = "images/creatures/bubblegum/amyndo.png",Type = "Bubblegum",CardType = "creature",Health = 14,CatchRate = 18,Level = 3,Abilities = {"Once per turn you may deal up to 6 damage to Amyndo. Then INCREMENT up to the amount of damage Amyndo took.","Amyndo may increment by 1 less to gain 1 heart."},AmountInDeck = 1
 	},
 	{
 		Name = "Ruruse",Type = "Bubblegum",CardType = "creature",Health = 12,CatchRate = 20,Level = 3,Abilities = {"When Ruruse takes 3 or more damage by 1 skill you may INCREMENT 3.","When you INCREMENT a {{D:6}} set the value to {{D:1}} and gain a new {{D:1}}."},AmountInDeck = 1

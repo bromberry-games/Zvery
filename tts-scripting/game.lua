@@ -12,7 +12,6 @@ local abilityDeckLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery
 local backTemplate = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/ivan-svg-templates/back-templates/card-back.png'
 local rulesLink = 'https://raw.githubusercontent.com/bromberry-games/Zvery/master/rules-new-structure/rules.pdf'
 
-
 local state = {
     currentPlayer = "",
     otherPlayer = "",
