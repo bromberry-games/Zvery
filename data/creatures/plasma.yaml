@@ -65,15 +65,16 @@
     - "If Kaurybri does 3 or more damage with one skill you may give target creature STUN 1."
   AmountInDeck: 1
 
-- Name: "Coiler" 
+- Name: "Thabum" 
+  TexturePath: "images/creatures/plasma/thabum.png"
   CardType: "creature"
   Type: "Plasma" 
   Health: 13 
   CatchRate: 16 
   Level: 3
   Abilities:   
-    - "You may remove STUN 4 from any creature, then give Coiler +1 strength."
-    - "Once per turn you may give STUN 4 to any creature, then give Coiler -1 fortitude."
+    - "You may remove STUN 4 from any creature, then give Thabum +1 strength."
+    - "Once per turn you may give STUN 4 to any creature, then give Thabum -1 fortitude."
   AmountInDeck: 1 
 
 - Name: "Decayadile" 
