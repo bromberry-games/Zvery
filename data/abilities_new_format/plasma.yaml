@@ -49,8 +49,8 @@
       text: "Deal 3 DMG"
     - !Skill
       dice: 
-        - M
-        - M
+        - 5
+        - 5
       powerup: Null
       modifiers: Null
       text: "The next time target creature uses a skill it has to use the same skill again without cost."

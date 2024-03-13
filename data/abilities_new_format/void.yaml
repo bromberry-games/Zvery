@@ -137,7 +137,7 @@
         - X
       powerup: Null
       modifiers: Null
-      text: "If target friendly takes exactly X dmg this turn it heals X+1."
+      text: "If target friendly takes exactly X dmg this turn it heals X+1 at the end of the turn."
     - !Skill
       dice: 
         - M
@@ -175,7 +175,7 @@
         - 2
       powerup: Null
       modifiers: Null
-      text: "Give a creature +1 strength until it takes HEART damage."
+      text: "Give a creature +1 strength until it takes damage."
     - !Skill
       dice: Null
       powerup: 6
